@@ -1,9 +1,18 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
+
+Route::get('/test', function () {
+    return Inertia::render('Test');
+});
+
+Route::get('/data/users/test', function () {
+    return response()->json(User::get());
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
