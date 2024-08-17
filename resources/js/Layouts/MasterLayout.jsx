@@ -7,18 +7,20 @@ import { FaCogs, FaFileAlt, FaFileContract, FaTasks, FaUserCog } from 'react-ico
 
 
 const mockdata = [
-    { label: 'Dashboard', icon: MdDashboard , link:'/dashboard'},
+    {
+        label: 'Dashboard', 
+        icon: MdDashboard , 
+        link:'/dashboard'
+    },
     {
         label: 'Master Configuration',
         icon: FaCogs,
-        initiallyOpened: true,
         links: [
-            { label: 'Overview', link: '/' },
-            { label: 'Agents', link: '/' },
-            { label: 'Subagents', link: '/' },
-            { label: 'Consumers', link: '/' },
-            { label: 'Publications', link: '/' },
-            { label: 'Locations', link: '/' },
+            { label: 'Agents', link: '/master/agents' },
+            { label: 'Sub Agents', link: '/master/sub-agents' },
+            { label: 'Other Consumers', link: '/master/consumers' },
+            { label: 'Publications', link: '/master/publications' },
+            { label: 'Locations', link: '/master/locations' },
             { label: 'Test', link: '/test' },
         ],
     },
@@ -73,7 +75,7 @@ const MasterLayout = (props) => {
     return (
         <div>
             <div className="flex h-screen overflow-hidden">
-                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} mockdata={mockdata}/>
+                <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} mockdata={mockdata} auth={props.auth}/>
                 <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
                     <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} {...props} />
                     <main>
@@ -84,7 +86,7 @@ const MasterLayout = (props) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default MasterLayout

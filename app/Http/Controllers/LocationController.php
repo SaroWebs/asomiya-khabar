@@ -28,8 +28,26 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'state_id' => 'required|integer|exists:states,id',
+            'district_id' => 'nullable|integer',
+            'zone_id' => 'nullable|integer',
+        ]);
+
+        try {
+            $location = Location::create($validatedData);
+
+            if ($location) {
+                return response()->json(['message' => 'Added'], 201);
+            } else {
+                return response()->json(['message' => 'Not added'], 400);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
     }
+
 
     /**
      * Display the specified resource.
@@ -52,7 +70,19 @@ class LocationController extends Controller
      */
     public function update(Request $request, Location $location)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'state_id' => 'required|integer|exists:states,id',
+            'district_id' => 'nullable|integer',
+            'zone_id' => 'nullable|integer',
+        ]);
+
+        try {
+            $location->updateOrFail($validatedData);
+            return response()->json(['message' => 'Location updated successfully'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['message' => 'Failed to update location'], 500);
+        }
     }
 
     /**
@@ -60,6 +90,11 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        //
+        try {
+            $location->deleteOrFail();
+            return response()->json(['message' => 'Location deleted successfully'], 200);
+        } catch (\Throwable $th) {
+            return response()->json(['message' => 'Failed to delete location'], 500);
+        }
     }
 }

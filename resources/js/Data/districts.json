@@ -1,35 +1,2787 @@
 [
-    {"state_code": "AS", "district_code": "AS-BK", "name": "Baksa"},
-    {"state_code": "AS", "district_code": "AS-BR", "name": "Barpeta"},
-    {"state_code": "AS", "district_code": "AS-BH", "name": "Biswanath"},
-    {"state_code": "AS", "district_code": "AS-BG", "name": "Bongaigaon"},
-    {"state_code": "AS", "district_code": "AS-CA", "name": "Cachar"},
-    {"state_code": "AS", "district_code": "AS-CH", "name": "Charaideo"},
-    {"state_code": "AS", "district_code": "AS-DB", "name": "Darrang"},
-    {"state_code": "AS", "district_code": "AS-DH", "name": "Dhemaji"},
-    {"state_code": "AS", "district_code": "AS-DI", "name": "Dhubri"},
-    {"state_code": "AS", "district_code": "AS-DA", "name": "Dibrugarh"},
-    {"state_code": "AS", "district_code": "AS-DS", "name": "Dima Hasao"},
-    {"state_code": "AS", "district_code": "AS-GO", "name": "Goalpara"},
-    {"state_code": "AS", "district_code": "AS-GA", "name": "Golaghat"},
-    {"state_code": "AS", "district_code": "AS-HO", "name": "Hailakandi"},
-    {"state_code": "AS", "district_code": "AS-JO", "name": "Hojai"},
-    {"state_code": "AS", "district_code": "AS-JR", "name": "Jorhat"},
-    {"state_code": "AS", "district_code": "AS-KR", "name": "Kamrup"},
-    {"state_code": "AS", "district_code": "AS-KM", "name": "Kamrup Metropolitan"},
-    {"state_code": "AS", "district_code": "AS-KA", "name": "Karbi Anglong"},
-    {"state_code": "AS", "district_code": "AS-KH", "name": "Karimganj"},
-    {"state_code": "AS", "district_code": "AS-KO", "name": "Kokrajhar"},
-    {"state_code": "AS", "district_code": "AS-LA", "name": "Lakhimpur"},
-    {"state_code": "AS", "district_code": "AS-MJ", "name": "Majuli"},
-    {"state_code": "AS", "district_code": "AS-MA", "name": "Morigaon"},
-    {"state_code": "AS", "district_code": "AS-NC", "name": "Nagaon"},
-    {"state_code": "AS", "district_code": "AS-NB", "name": "Nalbari"},
-    {"state_code": "AS", "district_code": "AS-NI", "name": "Sivasagar"},
-    {"state_code": "AS", "district_code": "AS-SO", "name": "Sonitpur"},
-    {"state_code": "AS", "district_code": "AS-ST", "name": "South Salmara-Mankachar"},
-    {"state_code": "AS", "district_code": "AS-TI", "name": "Tinsukia"},
-    {"state_code": "AS", "district_code": "AS-UD", "name": "Udalguri"},
-    {"state_code": "AS", "district_code": "AS-WK", "name": "West Karbi Anglong"}
-  ]
-  
+  {
+    "state_code": "AN",
+    "district_code": "AN-NM",
+    "name": "Nicobar"
+  },
+  {
+    "state_code": "AN",
+    "district_code": "AN-ND",
+    "name": "North and Middle Andaman"
+  },
+  {
+    "state_code": "AN",
+    "district_code": "AN-SA",
+    "name": "South Andaman"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-AN",
+    "name": "Anantapur"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-CH",
+    "name": "Chittoor"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-EG",
+    "name": "East Godavari"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-GU",
+    "name": "Guntur"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-KR",
+    "name": "Krishna"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-KU",
+    "name": "Kurnool"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-PR",
+    "name": "Prakasam"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-SP",
+    "name": "Sri Potti Sriramulu Nellore"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-SR",
+    "name": "Srikakulam"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-VS",
+    "name": "Visakhapatnam"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-VZ",
+    "name": "Vizianagaram"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-WG",
+    "name": "West Godavari"
+  },
+  {
+    "state_code": "AP",
+    "district_code": "AP-YC",
+    "name": "YSR Kadapa"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-AN",
+    "name": "Anjaw"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-CH",
+    "name": "Changlang"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-ES",
+    "name": "East Kameng"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-ESI",
+    "name": "East Siang"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-KR",
+    "name": "Kra Daadi"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-KL",
+    "name": "Kurung Kumey"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-LO",
+    "name": "Lohit"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-LR",
+    "name": "Longding"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-LD",
+    "name": "Lower Dibang Valley"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-LK",
+    "name": "Lower Siang"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-LS",
+    "name": "Lower Subansiri"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-NA",
+    "name": "Namsai"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-PA",
+    "name": "Pakke-Kessang"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-PU",
+    "name": "Papum Pare"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-SI",
+    "name": "Shi Yomi"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-TI",
+    "name": "Tawang"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-TA",
+    "name": "Tirap"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-UK",
+    "name": "Upper Dibang Valley"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-US",
+    "name": "Upper Siang"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-USI",
+    "name": "Upper Subansiri"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-WK",
+    "name": "West Kameng"
+  },
+  {
+    "state_code": "AR",
+    "district_code": "AR-WS",
+    "name": "West Siang"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-BK",
+    "name": "Baksa"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-BR",
+    "name": "Barpeta"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-BH",
+    "name": "Biswanath"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-BG",
+    "name": "Bongaigaon"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-CA",
+    "name": "Cachar"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-CH",
+    "name": "Charaideo"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-DB",
+    "name": "Darrang"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-DH",
+    "name": "Dhemaji"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-DI",
+    "name": "Dhubri"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-DA",
+    "name": "Dibrugarh"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-DS",
+    "name": "Dima Hasao"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-GO",
+    "name": "Goalpara"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-GA",
+    "name": "Golaghat"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-HO",
+    "name": "Hailakandi"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-JO",
+    "name": "Hojai"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-JR",
+    "name": "Jorhat"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-KR",
+    "name": "Kamrup"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-KM",
+    "name": "Kamrup Metropolitan"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-KA",
+    "name": "Karbi Anglong"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-KH",
+    "name": "Karimganj"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-KO",
+    "name": "Kokrajhar"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-LA",
+    "name": "Lakhimpur"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-MJ",
+    "name": "Majuli"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-MA",
+    "name": "Morigaon"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-NC",
+    "name": "Nagaon"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-NB",
+    "name": "Nalbari"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-NI",
+    "name": "Sivasagar"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-SO",
+    "name": "Sonitpur"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-ST",
+    "name": "South Salmara-Mankachar"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-TI",
+    "name": "Tinsukia"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-UD",
+    "name": "Udalguri"
+  },
+  {
+    "state_code": "AS",
+    "district_code": "AS-WK",
+    "name": "West Karbi Anglong"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-AR",
+    "name": "Araria"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-ARW",
+    "name": "Arwal"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-AU",
+    "name": "Aurangabad"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-BH",
+    "name": "Banka"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-BP",
+    "name": "Begusarai"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-BET",
+    "name": "Bhagalpur"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-BIK",
+    "name": "Bhojpur"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-BUX",
+    "name": "Buxar"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-DAR",
+    "name": "Darbhanga"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-EA",
+    "name": "East Champaran"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-GAI",
+    "name": "Gaya"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-GO",
+    "name": "Gopalganj"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-JA",
+    "name": "Jamui"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-JEH",
+    "name": "Jehanabad"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-KAI",
+    "name": "Kaimur"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-KAT",
+    "name": "Katihar"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-KIS",
+    "name": "Khagaria"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-KSH",
+    "name": "Kishanganj"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-LAK",
+    "name": "Lakhisarai"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-MAD",
+    "name": "Madhepura"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-MADH",
+    "name": "Madhubani"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-MUN",
+    "name": "Munger"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-MUZ",
+    "name": "Muzaffarpur"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-NAL",
+    "name": "Nalanda"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-NAW",
+    "name": "Nawada"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-PAT",
+    "name": "Patna"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-PUR",
+    "name": "Purnia"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-RO",
+    "name": "Rohtas"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SA",
+    "name": "Saharsa"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SAM",
+    "name": "Samastipur"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SAHA",
+    "name": "Saran"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SHE",
+    "name": "Sheikhpura"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SHR",
+    "name": "Sheohar"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SIT",
+    "name": "Sitamarhi"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SIV",
+    "name": "Siwan"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-SUP",
+    "name": "Supaul"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-VAI",
+    "name": "Vaishali"
+  },
+  {
+    "state_code": "BR",
+    "district_code": "BR-WC",
+    "name": "West Champaran"
+  },
+  {
+    "state_code": "CH",
+    "district_code": "CH-CH",
+    "name": "Chandigarh"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BI",
+    "name": "Balod"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BL",
+    "name": "Baloda Bazar"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BM",
+    "name": "Balrampur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BA",
+    "name": "Bastar"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BG",
+    "name": "Bemetara"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BI",
+    "name": "Bijapur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-BL",
+    "name": "Bilaspur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-DA",
+    "name": "Dantewada"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-DH",
+    "name": "Dhamtari"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-DG",
+    "name": "Durg"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-GA",
+    "name": "Gariaband"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-JA",
+    "name": "Janjgir-Champa"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-JS",
+    "name": "Jashpur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-KB",
+    "name": "Kabirdham"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-KA",
+    "name": "Kanker"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-KN",
+    "name": "Kondagaon"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-KO",
+    "name": "Korba"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-KR",
+    "name": "Koriya"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-MH",
+    "name": "Mahasamund"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-MU",
+    "name": "Mungeli"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-NR",
+    "name": "Narayanpur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-RA",
+    "name": "Raigarh"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-RG",
+    "name": "Raipur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-RJ",
+    "name": "Rajnandgaon"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-SU",
+    "name": "Sukma"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-SR",
+    "name": "Surajpur"
+  },
+  {
+    "state_code": "CT",
+    "district_code": "CT-SG",
+    "name": "Surguja"
+  },
+  {
+    "state_code": "DN",
+    "district_code": "DN-DN",
+    "name": "Dadra and Nagar Haveli"
+  },
+  {
+    "state_code": "DN",
+    "district_code": "DN-DM",
+    "name": "Daman"
+  },
+  {
+    "state_code": "DN",
+    "district_code": "DN-DI",
+    "name": "Diu"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-C",
+    "name": "Central Delhi"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-E",
+    "name": "East Delhi"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-N",
+    "name": "North Delhi"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-NW",
+    "name": "North West Delhi"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-S",
+    "name": "South Delhi"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-SW",
+    "name": "South West Delhi"
+  },
+  {
+    "state_code": "DL",
+    "district_code": "DL-W",
+    "name": "West Delhi"
+  },
+  {
+    "state_code": "GA",
+    "district_code": "GA-N",
+    "name": "North Goa"
+  },
+  {
+    "state_code": "GA",
+    "district_code": "GA-S",
+    "name": "South Goa"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-AG",
+    "name": "Ahmedabad"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-AR",
+    "name": "Amreli"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-AN",
+    "name": "Anand"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-BH",
+    "name": "Banaskantha"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-BL",
+    "name": "Banas Kantha"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-BD",
+    "name": "Bharuch"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-BJ",
+    "name": "Bhavnagar"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-DI",
+    "name": "Dahod"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-DJ",
+    "name": "Dang"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-GA",
+    "name": "Gandhinagar"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-GJ",
+    "name": "Gujarat"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-JA",
+    "name": "Jamnagar"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-JH",
+    "name": "Junagadh"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-KA",
+    "name": "Kutch"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-KH",
+    "name": "Kheda"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-MH",
+    "name": "Mahisagar"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-MA",
+    "name": "Mahi"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-NG",
+    "name": "Narmada"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-NH",
+    "name": "Navsari"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-PAN",
+    "name": "Panchmahal"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-PAT",
+    "name": "Patan"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-SK",
+    "name": "Sabar Kantha"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-SUR",
+    "name": "Surat"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-TAPI",
+    "name": "Tapi"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-VAD",
+    "name": "Vadodara"
+  },
+  {
+    "state_code": "GJ",
+    "district_code": "GJ-VAL",
+    "name": "Valsad"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-AMB",
+    "name": "Ambala"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-BHI",
+    "name": "Bhiwani"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-FAR",
+    "name": "Faridabad"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-FAT",
+    "name": "Fatehabad"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-GUR",
+    "name": "Gurugram"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-HIS",
+    "name": "Hissar"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-JHA",
+    "name": "Jhajjar"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-JIN",
+    "name": "Jind"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-KA",
+    "name": "Kaithal"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-KUR",
+    "name": "Kurushetra"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-MAH",
+    "name": "Mahendragarh"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-NAR",
+    "name": "Narnaul"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-PAN",
+    "name": "Panchkula"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-PAT",
+    "name": "Pataudi"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-REW",
+    "name": "Rewari"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-SIR",
+    "name": "Sirsa"
+  },
+  {
+    "state_code": "HR",
+    "district_code": "HR-SON",
+    "name": "Sonipat"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-BL",
+    "name": "Bilaspur"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-Ch",
+    "name": "Chamba"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-HS",
+    "name": "Hamirpur"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-KI",
+    "name": "Kangra"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-KL",
+    "name": "Kullu"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-LA",
+    "name": "Lahaul and Spiti"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-MA",
+    "name": "Mandi"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-SI",
+    "name": "Shimla"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-SP",
+    "name": "Sirmaur"
+  },
+  {
+    "state_code": "HP",
+    "district_code": "HP-UNA",
+    "name": "Una"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-AN",
+    "name": "Anantnag"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-BD",
+    "name": "Bandipora"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-BU",
+    "name": "Budgam"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-DD",
+    "name": "Doda"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-G",
+    "name": "Ganderbal"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-JA",
+    "name": "Jammu"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-KI",
+    "name": "Kathua"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-KUL",
+    "name": "Kulgam"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-KA",
+    "name": "Kupwara"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-PA",
+    "name": "Poonch"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-RA",
+    "name": "Ramban"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-RE",
+    "name": "Reasi"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-S",
+    "name": "Samba"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-SU",
+    "name": "Srinagar"
+  },
+  {
+    "state_code": "JK",
+    "district_code": "JK-UD",
+    "name": "Udhampur"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-BK",
+    "name": "Bokaro"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-BG",
+    "name": "Chatra"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-DA",
+    "name": "Deoghar"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-DH",
+    "name": "Dhanbad"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-DI",
+    "name": "Dumka"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-GI",
+    "name": "Giridih"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-GO",
+    "name": "Godda"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-JA",
+    "name": "Jamtara"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-JH",
+    "name": "Khunti"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-KO",
+    "name": "Koderma"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-LA",
+    "name": "Latehar"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-LT",
+    "name": "Lohardaga"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-PK",
+    "name": "Pakur"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-PA",
+    "name": "Palamu"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-RI",
+    "name": "Ranchi"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-SA",
+    "name": "Sahebganj"
+  },
+  {
+    "state_code": "JH",
+    "district_code": "JH-SI",
+    "name": "Simdega"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-BG",
+    "name": "Bagalkot"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-BL",
+    "name": "Ballari"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-BE",
+    "name": "Belagavi"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-BG",
+    "name": "Bengaluru Rural"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-BL",
+    "name": "Bengaluru Urban"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-BE",
+    "name": "Bidar"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-CH",
+    "name": "Chikkaballapur"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-CL",
+    "name": "Chikmagalur"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-CO",
+    "name": "Chitradurga"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-DV",
+    "name": "Dakshina Kannada"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-DA",
+    "name": "Davanagere"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-GA",
+    "name": "Gadag"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-HK",
+    "name": "Hassan"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-HS",
+    "name": "Haveri"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-IC",
+    "name": "Kodagu"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-KA",
+    "name": "Kolar"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-KR",
+    "name": "Kolleg"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-MD",
+    "name": "Mandya"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-MZ",
+    "name": "Mysuru"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-RA",
+    "name": "Raichur"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-RU",
+    "name": "Ramanagara"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-TG",
+    "name": "Tumakuru"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-UD",
+    "name": "Udupi"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-UK",
+    "name": "Uttara Kannada"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-VI",
+    "name": "Vijayapura"
+  },
+  {
+    "state_code": "KA",
+    "district_code": "KA-YA",
+    "name": "Yadgir"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-AL",
+    "name": "Alappuzha"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-ER",
+    "name": "Ernakulam"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-IA",
+    "name": "Idukki"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-KL",
+    "name": "Kollam"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-KO",
+    "name": "Kottayam"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-MA",
+    "name": "Malappuram"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-NL",
+    "name": "Nellore"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-PA",
+    "name": "Palakkad"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-TH",
+    "name": "Thrissur"
+  },
+  {
+    "state_code": "KL",
+    "district_code": "KL-TI",
+    "name": "Thiruvananthapuram"
+  },
+  {
+    "state_code": "LA",
+    "district_code": "LA-LA",
+    "name": "Leh"
+  },
+  {
+    "state_code": "LA",
+    "district_code": "LA-KA",
+    "name": "Kargil"
+  },
+  {
+    "state_code": "LD",
+    "district_code": "LD-AN",
+    "name": "Androth"
+  },
+  {
+    "state_code": "LD",
+    "district_code": "LD-AC",
+    "name": "Amini"
+  },
+  {
+    "state_code": "LD",
+    "district_code": "LD-KA",
+    "name": "Kavaratti"
+  },
+  {
+    "state_code": "LD",
+    "district_code": "LD-MA",
+    "name": "Minicoy"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-AG",
+    "name": "Agar Malwa"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-AL",
+    "name": "Alirajpur"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-AN",
+    "name": "Anuppur"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-AS",
+    "name": "Ashoknagar"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-BA",
+    "name": "Balaghat"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-BA",
+    "name": "Balaghat"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-BA",
+    "name": "Barwani"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-BC",
+    "name": "Betul"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-BH",
+    "name": "Bhopal"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-BR",
+    "name": "Burhanpur"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-CH",
+    "name": "Chhindwara"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-DA",
+    "name": "Datia"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-DH",
+    "name": "Dewas"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-DI",
+    "name": "Dindori"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-GA",
+    "name": "Guna"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-GW",
+    "name": "Gwalior"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-HO",
+    "name": "Harda"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-HS",
+    "name": "Hoshangabad"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-JA",
+    "name": "Jabalpur"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-JA",
+    "name": "Jhabua"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-JA",
+    "name": "Jabalpur"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-KA",
+    "name": "Katni"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-KH",
+    "name": "Khandwa"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-KN",
+    "name": "Kanker"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-MA",
+    "name": "Mandla"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-MA",
+    "name": "Mandsaur"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-ME",
+    "name": "Mhow"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-MU",
+    "name": "Morena"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-NI",
+    "name": "Narmada"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-NE",
+    "name": "Neemuch"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-PA",
+    "name": "Pachmarhi"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-RA",
+    "name": "Raisen"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-RA",
+    "name": "Rajgarh"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-RE",
+    "name": "Rewa"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SA",
+    "name": "Satna"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SH",
+    "name": "Sehore"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SE",
+    "name": "Seoni"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SI",
+    "name": "Sagar"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SI",
+    "name": "Shahdol"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SI",
+    "name": "Shivpuri"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SI",
+    "name": "Singrauli"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-SI",
+    "name": "Tikamgarh"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-UJ",
+    "name": "Ujjain"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-UM",
+    "name": "Umaria"
+  },
+  {
+    "state_code": "MP",
+    "district_code": "MP-VE",
+    "name": "Vidisha"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-AH",
+    "name": "Ahmednagar"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-AK",
+    "name": "Akola"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-AM",
+    "name": "Amravati"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-BE",
+    "name": "Beed"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-BH",
+    "name": "Bhandara"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-BR",
+    "name": "Buldhana"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-DA",
+    "name": "Dadra and Nagar Haveli"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-DH",
+    "name": "Dhule"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-GA",
+    "name": "Gadchiroli"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-GI",
+    "name": "Gondia"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-HI",
+    "name": "Hingoli"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-JA",
+    "name": "Jalgaon"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-JA",
+    "name": "Jalna"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-KA",
+    "name": "Kolhapur"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-KI",
+    "name": "Kolkata"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-LA",
+    "name": "Latur"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-MA",
+    "name": "Mumbai City"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-MU",
+    "name": "Mumbai Suburban"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-NA",
+    "name": "Nanded"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-ND",
+    "name": "Nandurbar"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-NG",
+    "name": "Nagpur"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-NG",
+    "name": "Nashik"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-OS",
+    "name": "Osmanabad"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-PU",
+    "name": "Pune"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-RA",
+    "name": "Ratnagiri"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-SI",
+    "name": "Satara"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-SU",
+    "name": "Sindhudurg"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-TI",
+    "name": "Thane"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-WA",
+    "name": "Washim"
+  },
+  {
+    "state_code": "MH",
+    "district_code": "MH-YA",
+    "name": "Yavatmal"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-IM",
+    "name": "Imphal East"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-IK",
+    "name": "Imphal West"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-KA",
+    "name": "Kangpokpi"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-KI",
+    "name": "Kangchup"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-KR",
+    "name": "Khurai"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-NE",
+    "name": "Noney"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-SI",
+    "name": "Senapati"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-TH",
+    "name": "Tamenglong"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-THO",
+    "name": "Thoubal"
+  },
+  {
+    "state_code": "MN",
+    "district_code": "MN-UK",
+    "name": "Ukhrul"
+  },
+  {
+    "state_code": "ML",
+    "district_code": "ML-BA",
+    "name": "East Khasi Hills"
+  },
+  {
+    "state_code": "ML",
+    "district_code": "ML-JA",
+    "name": "Jaintia Hills"
+  },
+  {
+    "state_code": "ML",
+    "district_code": "ML-RI",
+    "name": "Ri-Bhoi"
+  },
+  {
+    "state_code": "ML",
+    "district_code": "ML-UI",
+    "name": "West Khasi Hills"
+  },
+  {
+    "state_code": "ML",
+    "district_code": "ML-WE",
+    "name": "West Jaintia Hills"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-AY",
+    "name": "Aizawl"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-CH",
+    "name": "Champhai"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-HA",
+    "name": "Hnahthial"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-KA",
+    "name": "Kolasib"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-LA",
+    "name": "Lawngtlai"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-MA",
+    "name": "Mamit"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-SA",
+    "name": "Saiha"
+  },
+  {
+    "state_code": "MZ",
+    "district_code": "MZ-SI",
+    "name": "Serchhip"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-KI",
+    "name": "Kiphire"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-KO",
+    "name": "Kohima"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-MO",
+    "name": "Mokokchung"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-NU",
+    "name": "Noklak"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-PA",
+    "name": "Phek"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-TA",
+    "name": "Tuensang"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-WE",
+    "name": "Wokha"
+  },
+  {
+    "state_code": "NL",
+    "district_code": "NL-ZU",
+    "name": "Zunheboto"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-BA",
+    "name": "Bargarh"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-BD",
+    "name": "Balangir"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-BS",
+    "name": "Balasore"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-BU",
+    "name": "Boudh"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-DA",
+    "name": "Dhenkanal"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-DO",
+    "name": "Ganjam"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-GA",
+    "name": "Gajapati"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-KA",
+    "name": "Kalahandi"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-KH",
+    "name": "Kandhamal"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-KI",
+    "name": "Kendrapara"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-KI",
+    "name": "Kendujhar"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-MA",
+    "name": "Mayurbhanj"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-NG",
+    "name": "Nabarangpur"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-NP",
+    "name": "Nayagarh"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-NU",
+    "name": "Nuapada"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-PA",
+    "name": "Puri"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-SI",
+    "name": "Sambalpur"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-SI",
+    "name": "Sonepur"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-TA",
+    "name": "Ganjam"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-TH",
+    "name": "Ganjam"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-VE",
+    "name": "Khurda"
+  },
+  {
+    "state_code": "OR",
+    "district_code": "OR-WE",
+    "name": "Nabarangpur"
+  },
+  {
+    "state_code": "PY",
+    "district_code": "PY-KA",
+    "name": "Karaikal"
+  },
+  {
+    "state_code": "PY",
+    "district_code": "PY-MA",
+    "name": "Mahe"
+  },
+  {
+    "state_code": "PY",
+    "district_code": "PY-PU",
+    "name": "Puducherry"
+  },
+  {
+    "state_code": "PY",
+    "district_code": "PY-TA",
+    "name": "Yanam"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-AM",
+    "name": "Amritsar"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-BH",
+    "name": "Bathinda"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-FI",
+    "name": "Firozpur"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-FU",
+    "name": "Fatehgarh Sahib"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-GI",
+    "name": "Gurdaspur"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-JA",
+    "name": "Jalandhar"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-KA",
+    "name": "Kapurthala"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-LA",
+    "name": "Ludhiana"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-MA",
+    "name": "Mansa"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-MO",
+    "name": "Moga"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-SA",
+    "name": "Sangrur"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-SH",
+    "name": "Shaheed Bhagat Singh Nagar"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-SI",
+    "name": "Sri Muktsar Sahib"
+  },
+  {
+    "state_code": "PB",
+    "district_code": "PB-TI",
+    "name": "Tarn Taran"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-AD",
+    "name": "Ajmer"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-AL",
+    "name": "Alwar"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BA",
+    "name": "Banswara"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BA",
+    "name": "Baran"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BA",
+    "name": "Barmer"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BA",
+    "name": "Bharatpur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BH",
+    "name": "Bhilwara"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BL",
+    "name": "Bikaner"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-BO",
+    "name": "Bundi"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-CH",
+    "name": "Chittorgarh"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-DA",
+    "name": "Dausa"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-DA",
+    "name": "Dholpur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-DU",
+    "name": "Dungarpur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-JA",
+    "name": "Jaipur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-JA",
+    "name": "Jaisalmer"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-JH",
+    "name": "Jhalawar"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-JO",
+    "name": "Jodhpur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-KA",
+    "name": "Karauli"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-NA",
+    "name": "Nagaur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-PR",
+    "name": "Pali"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-RA",
+    "name": "Rajasthan"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-RA",
+    "name": "Sawai Madhopur"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-SC",
+    "name": "Sikar"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-SI",
+    "name": "Sirohi"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-TA",
+    "name": "Tonk"
+  },
+  {
+    "state_code": "RJ",
+    "district_code": "RJ-UD",
+    "name": "Udaipur"
+  },
+  {
+    "state_code": "SK",
+    "district_code": "SK-CE",
+    "name": "Central"
+  },
+  {
+    "state_code": "SK",
+    "district_code": "SK-EA",
+    "name": "East"
+  },
+  {
+    "state_code": "SK",
+    "district_code": "SK-NO",
+    "name": "North"
+  },
+  {
+    "state_code": "SK",
+    "district_code": "SK-WE",
+    "name": "West"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-AD",
+    "name": "Ariyalur"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-CI",
+    "name": "Chennai"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-CN",
+    "name": "Coimbatore"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-DI",
+    "name": "Dharmapuri"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-DI",
+    "name": "Dindigul"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-KA",
+    "name": "Kancheepuram"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-KA",
+    "name": "Kanyakumari"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-KO",
+    "name": "Karur"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-MA",
+    "name": "Madurai"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-MA",
+    "name": "Nagapattinam"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-NI",
+    "name": "Nilgiris"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-PU",
+    "name": "Perambalur"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-PR",
+    "name": "Pudukkottai"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-RR",
+    "name": "Ramanathapuram"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-SI",
+    "name": "Salem"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-TI",
+    "name": "Tiruchirapalli"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-TU",
+    "name": "Tirunelveli"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-TU",
+    "name": "Tirupur"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-TR",
+    "name": "Tiruvallur"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-VE",
+    "name": "Tiruvannamalai"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-VI",
+    "name": "Vellore"
+  },
+  {
+    "state_code": "TN",
+    "district_code": "TN-WE",
+    "name": "West"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-AD",
+    "name": "Adilabad"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-BH",
+    "name": "Bhadradri Kothagudem"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-BH",
+    "name": "Hyderabad"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-JA",
+    "name": "Jagtial"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-JO",
+    "name": "Jogu"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-JU",
+    "name": "Junk"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-KA",
+    "name": "Karimnagar"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-KO",
+    "name": "Khammam"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-MA",
+    "name": "Mahabubnagar"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-MA",
+    "name": "Medak"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-NI",
+    "name": "Nalgonda"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-NO",
+    "name": "Nizamabad"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-RA",
+    "name": "Ranga Reddy"
+  },
+  {
+    "state_code": "TG",
+    "district_code": "TG-WA",
+    "name": "Warangal"
+  },
+  {
+    "state_code": "TR",
+    "district_code": "TR-DU",
+    "name": "Dhalai"
+  },
+  {
+    "state_code": "TR",
+    "district_code": "TR-HA",
+    "name": "Hailakandi"
+  },
+  {
+    "state_code": "TR",
+    "district_code": "TR-KU",
+    "name": "Khowai"
+  },
+  {
+    "state_code": "TR",
+    "district_code": "TR-NI",
+    "name": "North Tripura"
+  },
+  {
+    "state_code": "TR",
+    "district_code": "TR-SI",
+    "name": "South Tripura"
+  },
+  {
+    "state_code": "TR",
+    "district_code": "TR-UN",
+    "name": "West Tripura"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-AG",
+    "name": "Agra"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-AL",
+    "name": "Aligarh"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-AY",
+    "name": "Ayodhya"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-BA",
+    "name": "Bareilly"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-BH",
+    "name": "Basti"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-BH",
+    "name": "Bijnor"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-BL",
+    "name": "Bulandshahr"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-ET",
+    "name": "Etah"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-FA",
+    "name": "Farrukhabad"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-FI",
+    "name": "Firozabad"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-GA",
+    "name": "Gautam Buddh Nagar"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-GO",
+    "name": "Gorakhpur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-HI",
+    "name": "Hathras"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-JA",
+    "name": "Jaunpur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-JH",
+    "name": "Jhansi"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-JI",
+    "name": "J P Nagar"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-KA",
+    "name": "Kanpur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-KH",
+    "name": "Kushinagar"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-LA",
+    "name": "Lakhimpur Kheri"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-LU",
+    "name": "Lucknow"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-MA",
+    "name": "Mathura"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-MU",
+    "name": "Mau"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-MU",
+    "name": "Meerut"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-MU",
+    "name": "Mirzapur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-PU",
+    "name": "Pratapgarh"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-RH",
+    "name": "Raebareli"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-RH",
+    "name": "Rampur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-RO",
+    "name": "Rudrapur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-SH",
+    "name": "Shahjahanpur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-SI",
+    "name": "Sitapur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-SI",
+    "name": "Sonbhadra"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-SO",
+    "name": "Sultanpur"
+  },
+  {
+    "state_code": "UP",
+    "district_code": "UP-UN",
+    "name": "Unnao"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-AL",
+    "name": "Almora"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-BA",
+    "name": "Bageshwar"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-BH",
+    "name": "Bharatpur"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-CH",
+    "name": "Champawat"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-CH",
+    "name": "Champawat"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-DE",
+    "name": "Dehradun"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-HA",
+    "name": "Haridwar"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-NA",
+    "name": "Nainital"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-PA",
+    "name": "Pauri Garhwal"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-PA",
+    "name": "Pithoragarh"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-TE",
+    "name": "Tehri Garhwal"
+  },
+  {
+    "state_code": "UT",
+    "district_code": "UT-US",
+    "name": "Uttarkashi"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-AL",
+    "name": "Alipurduar"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-BE",
+    "name": "Bankura"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-BI",
+    "name": "Birbhum"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-BR",
+    "name": "Burdwan"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-DA",
+    "name": "Darjeeling"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-HO",
+    "name": "Hooghly"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-IA",
+    "name": "Howrah"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-JA",
+    "name": "Jalpaiguri"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-JA",
+    "name": "Jhargram"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-KA",
+    "name": "Kolkata"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-MA",
+    "name": "Malda"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-MI",
+    "name": "Midnapore"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-MU",
+    "name": "Murshidabad"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-NA",
+    "name": "Nadia"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-NO",
+    "name": "North 24 Parganas"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-PU",
+    "name": "Purba Medinipur"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-SU",
+    "name": "Purulia"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-SU",
+    "name": "South 24 Parganas"
+  },
+  {
+    "state_code": "WB",
+    "district_code": "WB-WE",
+    "name": "West Midnapore"
+  }
+]
