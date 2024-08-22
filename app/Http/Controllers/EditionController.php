@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class EditionController extends Controller
 {
+    public function api_data(Request $request) {
+        $query = Edition::query();
+
+        $pub = $request->input('publication');
+        if($pub) $query->where('publication_id', $pub);
+
+        
+        $ed = $query->get();
+        return response()->json($ed);
+    }
     /**
      * Display a listing of the resource.
      */

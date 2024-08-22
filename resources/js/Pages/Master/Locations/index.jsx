@@ -21,15 +21,20 @@ const index = (props) => {
             axios.get(`/api/districts?state=${selected.state}`).then(res => { setDists(res.data) }).catch(er => console.log(er.message));
             axios.get(`/api/zones?state=${selected.state}`).then(res => { setZones(res.data) }).catch(er => console.log(er.message));
             axios.get(`/api/locations?state=${selected.state}`).then(res => { setItems(res.data) }).catch(er => console.log(er.message));
+        } else {
+            axios.get(`/api/locations`).then(res => { setItems(res.data) }).catch(er => console.log(er.message));
         }
+
         if (selected.district) {
             let fi = items.filter(ix => ix.district_id == selected.district);
             setFilteredItems(fi);
         }
+
         if (selected.zone) {
             let fi = items.filter(ix => ix.zone_id == selected.zone);
             setFilteredItems(fi);
         }
+
     }
 
     const handleStateSelect = (e) => {
@@ -42,7 +47,7 @@ const index = (props) => {
         if (did) {
             let fi = items.filter(ix => ix.district_id == did);
             setFilteredItems(fi);
-            setSelected({ ...selected, district: did });
+            setSelected({ ...selected, district: did, zone: '' });
         } else {
             loadData();
         }
@@ -51,14 +56,24 @@ const index = (props) => {
     const handleZoneSelect = (e) => {
         let zid = e.target.value;
         if (zid) {
-            let fi = items.filter(ix => ix.zone_id == zid);
+            let fid = items;
+            if (selected.district) {
+                fid = items.filter(ix => ix.district_id == selected.district);
+            }
+
+            let fi = fid.filter(ix => ix.zone_id == zid);
+
             setFilteredItems(fi);
+
             setSelected({ ...selected, zone: zid });
         } else {
             loadData();
         }
     }
 
+    useEffect(() => {
+        loadData();
+    }, []);
     useEffect(() => {
         loadData();
     }, [selected.state]);
@@ -74,7 +89,7 @@ const index = (props) => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="flex flex-col">
                         <label className="text-xs font-semibold text-gray-700" htmlFor="sts">State :</label>
-                        <select className="text-sm py-2 px-3 mt-1 rounded-md border border-gray-300 focus:ring focus:ring-indigo-200 focus:border-indigo-300" id="sts" name="sts" defaultValue={''} onChange={handleStateSelect}>
+                        <select className="text-sm py-2 px-3 mt-1 rounded-md border border-gray-300 focus:ring focus:ring-indigo-200 focus:border-indigo-300" id="sts" name="sts" value={selected.state} onChange={handleStateSelect}>
                             <option value="" disabled>Select State</option>
                             {states.length > 0 && states.map(st => (
                                 <option key={st.code} value={st.code}>{st.name + " ( " + st.code + " )"}</option>
@@ -110,7 +125,7 @@ const index = (props) => {
                 <hr className='my-2' />
 
                 <div className="my-4">
-                    <LocationList items={filteredItems} states={states} reload={loadData}/>
+                    <LocationList items={filteredItems} states={states} reload={loadData} />
                 </div>
             </div>
         </MasterLayout>

@@ -1,60 +1,49 @@
 <?php
 
+use App\Models\Zone;
+use App\Models\State;
 use App\Models\District;
 use App\Models\Location;
-use App\Models\State;
-use App\Models\Zone;
+use App\Models\FinSession;
+use App\Models\Publication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\EditionController;
+use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PublicationController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
 
-Route::get('/states', function () {
-    $states = State::get();
-    return response()->json($states);
+Route::controller(StateController::class)->group(function(){
+    Route::get('/states', 'api_data');
 });
 
-Route::get('/districts', function (Request $request) {
-    $s_code = $request->input('state');
-    $query = District::query();
-    if ($s_code) {
-        $query->where('state_code', $s_code);
-    }
-    return response()->json($query->get());
+Route::controller(DistrictController::class)->group(function(){
+    Route::get('/districts', 'api_data');
+});
+Route::controller(ZoneController::class)->group(function(){
+    Route::get('/zones', 'api_data');
 });
 
-Route::get('/zones', function (Request $request) {
-    $s_code = $request->input('state');
-    $query = Zone::query();
-    if ($s_code) {
-        $query->where('state_code', $s_code);
-    }
-    return response()->json($query->get());
+Route::controller(LocationController::class)->group(function(){
+    Route::get('/locations', 'api_data');
 });
 
+Route::controller(FinSession::class)->group(function(){
+    Route::get('/fin-session', 'api_data');
+});
 
-Route::get('/locations', function (Request $request) {
-    $d_code = $request->input('district');
-    $s_code = $request->input('state');
-    $query = Location::query();
+Route::controller(PublicationController::class)->group(function(){
+    Route::get('/publications', 'api_data');
+    Route::get('/active/publication', 'active_item');
+});
 
-    if ($d_code) {
-        $district = District::where('district_code', $d_code)->first();
-        if ($district) $query->where('district_id', $district->id);
-    }
-
-    if ($s_code) {
-        $districts = District::where('state_code', $s_code)->pluck('id');
-        if ($districts->isNotEmpty()){
-            $query->whereIn('district_id', $districts);
-        }else{
-            $st = State::where('code', $s_code)->first();
-            $query->where('state_id', $st->id);
-        }
-    }
-
-    return response()->json($query->with(['district', 'zone', 'state'])->get());
+Route::controller(EditionController::class)->group(function(){
+    Route::get('/editions', 'api_data');
 });

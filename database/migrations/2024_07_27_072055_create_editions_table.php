@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('pay_prefix')->nullable();
             $table->string('dn_prefix')->nullable();
             $table->string('cn_prefix')->nullable();
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }

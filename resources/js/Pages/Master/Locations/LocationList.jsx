@@ -1,18 +1,41 @@
-import { Button, Group, Modal, ScrollArea, Table } from '@mantine/core';
-import React, { useEffect, useState } from 'react'
+import { Button, Group, Modal, Pagination, ScrollArea, Select, Table } from '@mantine/core';
+import React, { useEffect, useState } from 'react';
 import CreateLocation from './CreateLocation';
 import SearchLocation from './SearchLocation';
 import { useDisclosure } from '@mantine/hooks';
 import { MdEdit } from 'react-icons/md';
 import { FaTrash } from 'react-icons/fa';
 
-const LocationList = (props) => {
-    const { items, reload, states } = props;
+const chunk = (array, size) => {
+    return array.reduce((acc, _, index) => {
+        if (index % size === 0) {
+            acc.push(array.slice(index, index + size));
+        }
+        return acc;
+    }, []);
+};
+
+const LocationList = ({ items, reload, states }) => {
+    const [activePage, setActivePage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
     const [scrolled, setScrolled] = useState(false);
 
-    const rows = items.map((row) => (
+    useEffect(() => {
+        setActivePage(1); // Reset to the first page whenever pageSize changes
+    }, [pageSize]);
+
+    const paginatedData = chunk(items, pageSize);
+    const currentPageData = paginatedData[activePage - 1] || [];
+
+    const handlePageSizeChange = (value) => {
+        setPageSize(Number(value));
+    };
+
+    const rows = currentPageData.map((row, index) => (
         <Table.Tr key={row.id}>
+            <Table.Td>{index + 1}</Table.Td>
             <Table.Td>{row.name}</Table.Td>
+            <Table.Td>{row.state?.name}</Table.Td>
             <Table.Td>{row.district?.name}</Table.Td>
             <Table.Td>{row.zone?.name}</Table.Td>
             <Table.Td>
@@ -21,45 +44,66 @@ const LocationList = (props) => {
                     <DeleteLocation item={row} reload={reload} />
                 </div>
             </Table.Td>
-
         </Table.Tr>
     ));
 
     return (
         <div>
             <h2 className="mb-6 text-3xl font-bold text-slate-400">Locations</h2>
-            <div className="flex justify-between items-center">
-                <div className="">
-                    <SearchLocation {...props} />
-                </div>
-                <div className="flex">
-                    <CreateLocation {...props} />
+            <div className="flex justify-between items-end mb-4">
+                <Select
+                    label="Show"
+                    value={pageSize.toString()}
+                    data={['2', '5', '10', '20', '50', '100', '500']}
+                    onChange={handlePageSizeChange}
+                />
+                <div className="flex items-end gap-4">
+                    <SearchLocation {...{ items, reload, states }} />
+                    <CreateLocation {...{ reload, states }} />
                 </div>
             </div>
             <ScrollArea h={300} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
-                {items.length > 0 ?
-                    <Table miw={700}>
-                        <Table.Thead>
-                            <Table.Tr>
-                                <Table.Th>Name</Table.Th>
-                                <Table.Th>District</Table.Th>
-                                <Table.Th>Zone</Table.Th>
-                                <Table.Th></Table.Th>
-                            </Table.Tr>
-                        </Table.Thead>
-                        <Table.Tbody>{rows}</Table.Tbody>
-                    </Table>
-                    :
-                    <div className='flex min-h-60 justify-center items-center'>
-                        <span className="text-2xl text-slate-300">No Location Found !</span>
+                {items.length > 0 ? (
+                    <div className='p-4 border rounded-lg'>
+                        <Table miw={700} verticalSpacing="md">
+                            <Table.Thead>
+                                <Table.Tr>
+                                    <Table.Th>Sl. No</Table.Th>
+                                    <Table.Th>Name</Table.Th>
+                                    <Table.Th>State</Table.Th>
+                                    <Table.Th>District</Table.Th>
+                                    <Table.Th>Zone</Table.Th>
+                                    <Table.Th></Table.Th>
+                                </Table.Tr>
+                            </Table.Thead>
+                            <Table.Tbody>{rows}</Table.Tbody>
+                        </Table>
+                        <div className="flex gap-4 items-center justify-end mt-4">
+                            {paginatedData.length > 1 &&
+                                <Pagination
+                                    total={paginatedData.length}
+                                    value={activePage}
+                                    onChange={setActivePage}
+                                    mt="sm"
+                                    color="cyan"
+                                    radius="xl"
+                                    withEdges={paginatedData.length > 20}
+                                />
+                            }
+                        </div>
                     </div>
-                }
+                ) : (
+                    <div className="flex min-h-60 justify-center items-center">
+                        <span className="text-2xl text-slate-300">No Location Found!</span>
+                    </div>
+                )}
             </ScrollArea>
         </div>
-    )
-}
+    );
+};
 
-export default LocationList
+export default LocationList;
+
 
 const EditLocation = ({ item, states, reload }) => {
     const [opened, { open, close }] = useDisclosure(false);
@@ -77,7 +121,7 @@ const EditLocation = ({ item, states, reload }) => {
     useEffect(() => {
         async function fetchData() {
             console.log(formInfo);
-            
+
             if (formInfo.state_id) {
                 let state_code = states.find(st => st.id === parseInt(formInfo.state_id)).code;
                 try {

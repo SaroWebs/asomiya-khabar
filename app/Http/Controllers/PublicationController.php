@@ -8,12 +8,40 @@ use Illuminate\Http\Request;
 class PublicationController extends Controller
 {
     /**
+     * Display a listing of the api resource.
+     */
+    public function api_data(Request $request)
+    {
+        $query = Publication::query();
+
+        $code = $request->input('code');
+        if ($code) $query->where('code', $code);
+
+        $parent = $request->input('parent');
+        if ($parent) $query->where('parent_id', $parent);
+        $pb = $query->with(['parent', 'children'])->get();
+        return response()->json($pb);
+    }
+
+    public function active_item()
+    {
+        $query = Publication::query();
+        $query->where('active', 1);
+        $pb = $query->with(['parent', 'children'])->first();
+        if ($pb) {
+            return response()->json($pb, 200);
+        }
+        return response()->json($pb, 400);
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +56,9 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'code' => 'required'
+        ]);
     }
 
     /**

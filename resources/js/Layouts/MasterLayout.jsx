@@ -3,6 +3,7 @@ import Header from '@/Components/Navigation/Header';
 import Sidebar from '@/Components/Navigation/Sidebar';
 import { MdDashboard } from 'react-icons/md';
 import { FaCogs, FaFileAlt, FaFileContract, FaTasks, FaUserCog } from 'react-icons/fa';
+import GlobalSettings from '@/Components/System/GlobalSettings';
 
 
 
@@ -72,6 +73,7 @@ const mockdata = [
 
 const MasterLayout = (props) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+
     return (
         <div>
             <div className="flex h-screen overflow-hidden">
@@ -84,6 +86,7 @@ const MasterLayout = (props) => {
                         </div>
                     </main>
                 </div>
+                <GlobalSettings />
             </div>
         </div>
     );

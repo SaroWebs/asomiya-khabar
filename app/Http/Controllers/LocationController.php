@@ -2,11 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\State;
+use App\Models\District;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
+    /**
+     * Display a listing of the api resource.
+     */
+    public function api_data(Request $request)
+    {
+        $d_code = $request->input('district');
+        $s_code = $request->input('state');
+        $query = Location::query();
+
+        if ($d_code) {
+            $district = District::where('district_code', $d_code)->first();
+            if ($district) $query->where('district_id', $district->id);
+        }
+
+        if ($s_code) {
+            $districts = District::where('state_code', $s_code)->pluck('id');
+            if ($districts->isNotEmpty()) {
+                $query->whereIn('district_id', $districts);
+            } else {
+                $st = State::where('code', $s_code)->first();
+                $query->where('state_id', $st->id);
+            }
+        }
+
+        return response()->json($query->with(['district', 'zone', 'state'])->get());
+    }
     /**
      * Display a listing of the resource.
      */

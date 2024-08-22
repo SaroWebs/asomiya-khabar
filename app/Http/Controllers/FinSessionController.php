@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class FinSessionController extends Controller
 {
+    public function api_data() {
+        $f_s = FinSession::get();
+        return response()->json($f_s);
+    }
     /**
      * Display a listing of the resource.
      */
