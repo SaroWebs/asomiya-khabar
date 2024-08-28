@@ -26,6 +26,7 @@ const index = (props) => {
             <Head title="Publications" />
             <div className="">
                 Publications
+                
             </div>
         </MasterLayout>
     )
