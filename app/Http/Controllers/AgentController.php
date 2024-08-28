@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use App\Models\AgencyType;
+use App\Models\Location;
+use App\Models\CirculationRoute;
+use Inertia\Inertia;
 
 class AgentController extends Controller
 {
@@ -12,7 +16,17 @@ class AgentController extends Controller
      */
     public function index()
     {
-        //
+        $agents = Agent::with('agencyType')->get();
+        $agencyTypes = AgencyType::all();
+        $locations = Location::all();
+        $routes = CirculationRoute::all();
+
+        return Inertia::render('Master/Agents/Index', [
+            'agents' => $agents,
+            'agencyTypes' => $agencyTypes,
+            'locations' => $locations,
+            'routes' => $routes,
+        ]);
     }
 
     /**

@@ -7,7 +7,7 @@ const index = (props) => {
         <MasterLayout {...props}>
             <Head title="Dashboard" />
             <div className="">
-                Sub Agents
+                
             </div>
         </MasterLayout>
     )

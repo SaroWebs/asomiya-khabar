@@ -13,6 +13,7 @@ use App\Http\Controllers\StateController;
 use App\Http\Controllers\EditionController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\FinSessionController;
 use App\Http\Controllers\PublicationController;
 
 Route::get('/user', function (Request $request) {
@@ -35,7 +36,7 @@ Route::controller(LocationController::class)->group(function(){
     Route::get('/locations', 'api_data');
 });
 
-Route::controller(FinSession::class)->group(function(){
+Route::controller(FinSessionController::class)->group(function(){
     Route::get('/fin-session', 'api_data');
 });
 
@@ -45,5 +46,5 @@ Route::controller(PublicationController::class)->group(function(){
 });
 
 Route::controller(EditionController::class)->group(function(){
-    Route::get('/editions', 'api_data');
+    Route::get('/publication/{publication}/editions', 'api_data');
 });

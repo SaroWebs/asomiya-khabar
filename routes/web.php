@@ -2,14 +2,14 @@
 
 use App\Models\User;
 use Inertia\Inertia;
-use App\Models\Edition;
-use App\Models\FinSession;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\EditionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\FinSessionController;
 use App\Http\Controllers\PublicationController;
 
 Route::controller(PagesController::class)->group(function () {
@@ -45,16 +45,22 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::controller(FinSession::class)->group(function(){
+    Route::controller(FinSessionController::class)->group(function(){
         //Route::
     });
 
-    Route::controller(Edition::class)->group(function(){
-        //Route::
+    Route::controller(EditionController::class)->group(function(){
+        Route::post('/edition/{publication}/create', 'store');
+        Route::delete('/edition/{edition}', 'destroy');
+        Route::patch('/edition/{edition}/update-status', 'updateStatus');
+        Route::patch('/edition/{edition}/activate', 'activate');
     });
 
     Route::controller(PublicationController::class)->group(function(){
         Route::post('/publication/create', 'store');
+        Route::delete('/publication/{publication}', 'destroy');
+        Route::patch('/publication/{publication}', 'update');
+        Route::patch('/publication/{publication}/activate', 'activate');
     });
     
 });
