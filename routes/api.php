@@ -9,6 +9,7 @@ use App\Models\Publication;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\AgentController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\EditionController;
 use App\Http\Controllers\DistrictController;
@@ -38,6 +39,7 @@ Route::controller(LocationController::class)->group(function(){
 
 Route::controller(FinSessionController::class)->group(function(){
     Route::get('/fin-session', 'api_data');
+    Route::get('/active/finsession', 'active_item');
 });
 
 Route::controller(PublicationController::class)->group(function(){
@@ -47,4 +49,8 @@ Route::controller(PublicationController::class)->group(function(){
 
 Route::controller(EditionController::class)->group(function(){
     Route::get('/publication/{publication}/editions', 'api_data');
+});
+
+Route::controller(AgentController::class)->group(function(){
+    Route::get('/agents', 'api_data');
 });

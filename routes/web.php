@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\FinSessionController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\AgentController;
 
 Route::controller(PagesController::class)->group(function () {
     Route::get('/', 'welcome');
@@ -61,6 +62,12 @@ Route::middleware('auth')->group(function () {
         Route::delete('/publication/{publication}', 'destroy');
         Route::patch('/publication/{publication}', 'update');
         Route::patch('/publication/{publication}/activate', 'activate');
+    });
+
+    Route::controller(AgentController::class)->group(function(){
+        Route::post('/agency/create', 'store');
+        Route::delete('/agency/{agent}', 'destroy');
+        Route::put('/agency/{agent}', 'update');
     });
     
 });

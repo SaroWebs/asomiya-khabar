@@ -9,6 +9,7 @@ class AgencyType extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    
     public function agents()
     {
         return $this->hasMany(Agent::class);

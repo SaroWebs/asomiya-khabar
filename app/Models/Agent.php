@@ -8,9 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
-    protected $guarded=[];
     
-    public function agencyType()
+    protected $fillable = [
+        'name',
+        'contact_person',
+        'phone',
+        'fax_no',
+        'email',
+        'postal_code',
+        'address',
+        'parent',
+        'agency_type_id',
+        'location_id',
+        'route_id',
+        'is_latecity',
+    ];
+
+    public function agency_type()
     {
         return $this->belongsTo(AgencyType::class);
     }

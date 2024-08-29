@@ -18,6 +18,7 @@ const Sidebar = (props) => {
 		storedSidebarExpanded === null ? false : storedSidebarExpanded === 'true'
 	);
 
+	const [openMenuIndex, setOpenMenuIndex] = useState(null);
 
 	useEffect(() => {
 		const clickHandler = ({ target }) => {
@@ -47,10 +48,18 @@ const Sidebar = (props) => {
 		}
 	}, [sidebarExpanded]);
 
+	useEffect(() => {
+		const activeIndex = mockdata.findIndex(item => 
+			item.link === window.location.pathname || 
+			(item.links && item.links.some(link => link.link === window.location.pathname))
+		);
+		setOpenMenuIndex(activeIndex);
+	}, []);
+
 	return (
 		<aside
 			ref={sidebar}
-			className={`absolute left-0 top-0 z-50 flex h-screen w-72 flex-col overflow-y-hidden shadow-md bg-gradient-to-r from-cyan-700 to-blue-800 duration-300 ease-linear lg:static lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+			className={`absolute left-0 top-0 z-50 flex h-screen w-72 flex-col overflow-y-auto shadow-md bg-gradient-to-r from-cyan-700 to-blue-800 duration-300 ease-linear lg:static lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
 		>
 			<nav className="absolute left-0 top-0 z-50  w-full px-4 py-6 flex flex-col text-white">
 				<div className="m-2 p-2 flex justify-between items-center">
@@ -68,13 +77,20 @@ const Sidebar = (props) => {
 					</button>
 				</div>
 
-				<hr className='my-4 p-0.5 border-none bg-gradient-to-r from-orange-700 via-purple-600 to-yellow-400 rounded-full' />
-				<ScrollArea h={520}>
+				<hr className='my-2 p-0.5 border-none bg-gradient-to-r from-orange-700 via-purple-600 to-yellow-400 rounded-full' />
+				<ScrollArea h={400}>
 					<div className={``}>
-						{mockdata.map((mock, i) => <MenuItem item={mock} key={i} />)}
+						{mockdata.map((mock, i) => (
+							<MenuItem 
+								item={mock} 
+								key={i} 
+								isOpen={openMenuIndex === i}
+								onToggle={() => setOpenMenuIndex(openMenuIndex === i ? null : i)}
+							/>
+						))}
 					</div>
 				</ScrollArea>
-				<hr className="my-4 p-0.5 border-none bg-gradient-to-r from-orange-700 via-purple-600 to-yellow-400 rounded-full" />
+				<hr className="my-2 p-0.5 border-none bg-gradient-to-r from-orange-700 via-purple-600 to-yellow-400 rounded-full" />
 				<div className="w-full gap-2 flex flex-col">
 					<Link href={route('profile.edit')} className="flex gap-2 items-center p-2 rounded-md hover:shadow-md hover:bg-white/10 hover:text-orange-200 cursor-pointer">
 						<FaUserCog className="w-6 h-6" />
@@ -95,24 +111,16 @@ const Sidebar = (props) => {
 	);
 }
 
-export default Sidebar
-
-const MenuItem = ({ item }) => {
-	const [menuOpen, setMenuOpen] = useState(false);
+const MenuItem = ({ item, isOpen, onToggle }) => {
 	const pathname = window.location.pathname;
-	const toggleMenu = () => {
-		setMenuOpen(!menuOpen);
-	};
-	useEffect(() => {
-		if (item.initiallyOpened) {
-			setMenuOpen(true);
-		}
-	}, []);
 	const isActive = item.link === pathname || (item.links && item.links.some(link => link.link === pathname));
 
 	return (
 		<div key={item.label} className='mr-4'>
-			<div className={`flex items-center space-x-2 p-2 py-3 rounded-md hover:shadow-md hover:bg-white/10 hover:text-orange-200 cursor-pointer ${isActive ? 'text-orange-300 font-bold shadow-md bg-white/10' : ''}`} onClick={toggleMenu}>
+			<div 
+				className={`flex items-center space-x-2 p-2 py-3 rounded-md hover:shadow-md hover:bg-white/10 hover:text-orange-200 cursor-pointer ${isActive ? 'text-orange-300 font-bold shadow-md bg-white/10' : ''}`} 
+				onClick={onToggle}
+			>
 				<item.icon className='w-6 h-6' />
 				{item.link ? (
 					<Link href={item.link}>{item.label}</Link>
@@ -120,10 +128,14 @@ const MenuItem = ({ item }) => {
 					<span>{item.label}</span>
 				)}
 			</div>
-			{item.links && menuOpen && (
+			{item.links && isOpen && (
 				<div className="mx-4">
 					{item.links.map((m) => (
-						<Link href={m.link} key={m.label} className={`block py-2 pl-6 rounded-md hover:shadow-md hover:bg-white/10 hover:text-orange-200 cursor-pointer ${m.link === pathname ? 'text-orange-300 font-bold shadow-md' : ''}`}>
+						<Link 
+							href={m.link} 
+							key={m.label} 
+							className={`block py-2 pl-6 rounded-md hover:shadow-md hover:bg-white/10 hover:text-orange-200 cursor-pointer ${m.link === pathname ? 'text-orange-300 font-bold shadow-md' : ''}`}
+						>
 							{m.label}
 						</Link>
 					))}
@@ -132,3 +144,5 @@ const MenuItem = ({ item }) => {
 		</div>
 	);
 };
+
+export default Sidebar

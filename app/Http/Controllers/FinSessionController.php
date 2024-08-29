@@ -11,6 +11,12 @@ class FinSessionController extends Controller
         $f_s = FinSession::get();
         return response()->json($f_s);
     }
+
+
+    public function active_item() {
+        $f_s = FinSession::where('active', 1)->first();
+        return response()->json($f_s);
+    }
     /**
      * Display a listing of the resource.
      */

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Agent;
 use App\Models\State;
-use Illuminate\Http\Request;
+use App\Models\Location;
+use App\Models\AgencyType;
+use App\Models\CirculationRoute;
 
 class PagesController extends Controller
 {
@@ -19,7 +22,20 @@ class PagesController extends Controller
 
     public function master_agents()
     {
-        return Inertia::render('Master/Agents/index');
+        $agents = Agent::where('parent', null)->with('agency_type')->get();
+        $agencyTypes = AgencyType::all();
+        $locations = Location::all();
+        $routes = CirculationRoute::with(['fromLocation', 'toLocation'])->get()->map(function ($route) {
+            $route->name = $route->fromLocation->name . ' - ' . $route->toLocation->name;
+            return $route;
+        });
+
+        return Inertia::render('Master/Agents/index', [
+            'agents' => $agents,
+            'agencyTypes' => $agencyTypes,
+            'locations' => $locations,
+            'routes' => $routes,
+        ]);
     }
 
     public function master_subagents()
