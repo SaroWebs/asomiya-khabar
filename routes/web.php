@@ -21,7 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::controller(PagesController::class)->group(function () {
         Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::get('/master/agents', 'master_agents');
-        Route::get('/master/sub-agents', 'master_subagents');
         Route::get('/master/consumers', 'master_consumers');
         Route::get('/master/publications', 'master_publications');
         Route::get('/master/locations', 'master_locations');

@@ -38,10 +38,6 @@ class PagesController extends Controller
         ]);
     }
 
-    public function master_subagents()
-    {
-        return Inertia::render('Master/SubAgents/index');
-    }
 
     public function master_consumers()
     {

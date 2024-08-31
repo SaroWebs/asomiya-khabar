@@ -8,7 +8,7 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import {  MantineProvider } from '@mantine/core';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'NewsPaper Circulation System';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,

@@ -134,8 +134,18 @@ class AgentController extends Controller
     public function api_data()
     {
         try {
-            $agents = Agent::where('parent', null)->with(['agency_type', 'parent', 'location', 'route'])->get();
+            $agents = Agent::where('parent', null)->with(['agency_type', 'location', 'route.fromLocation','route.toLocation'])->get();
             return response()->json($agents);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to fetch agents: ' . $e->getMessage()], 500);
+        }
+    }
+
+    public function get_subagents()
+    {
+        try {
+            $subagents = Agent::whereNotNull('parent')->with(['agency_type', 'parent', 'location', 'route.fromLocation','route.toLocation'])->get();
+            return response()->json($subagents);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Failed to fetch agents: ' . $e->getMessage()], 500);
         }

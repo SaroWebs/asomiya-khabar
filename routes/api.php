@@ -53,4 +53,5 @@ Route::controller(EditionController::class)->group(function(){
 
 Route::controller(AgentController::class)->group(function(){
     Route::get('/agents', 'api_data');
+    Route::get('/subagents', 'get_subagents');
 });

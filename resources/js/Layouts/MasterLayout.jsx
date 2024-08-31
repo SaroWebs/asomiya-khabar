@@ -17,12 +17,11 @@ const mockdata = [
         label: 'Master Configuration',
         icon: FaCogs,
         links: [
-            { label: 'Agents', link: '/master/agents' },
-            { label: 'Sub Agents', link: '/master/sub-agents' },
-            { label: 'Other Consumers', link: '/master/consumers' },
-            { label: 'Publications', link: '/master/publications' },
             { label: 'Locations', link: '/master/locations' },
-            { label: 'Test', link: '/test' },
+            { label: 'Publications', link: '/master/publications' },
+            { label: 'Agents', link: '/master/agents' },
+            { label: 'Consumers', link: '/master/consumers' },
+            { label: 'Subscribers', link: '/master/subscribers' },
         ],
     },
     {
@@ -73,7 +72,7 @@ const mockdata = [
 
 const MasterLayout = (props) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-
+    const {app}=props;
     return (
         <div>
             <div className="flex h-screen overflow-hidden">
@@ -85,6 +84,13 @@ const MasterLayout = (props) => {
                             {props.children}
                         </div>
                     </main>
+                    <footer className="fixed z-[999999] bottom-0 left-0 right-0 bg-black/10 py-2 px-6">
+                        <div className="flex justify-end gap-3">
+                            <span className="text-xs font-thin">v {app.version}</span>
+                            <span className="text-xs font-thin text-cyan-700 capitalize">( {app.environment} )</span>
+                            {/* <span className="text-xs font-thin bg-red-800 text-white px-2 capitalize rounded-full">Debugging: {app.debug?"True":"False"}</span> */}
+                        </div>
+                    </footer>
                 </div>
                 <GlobalSettings />
             </div>

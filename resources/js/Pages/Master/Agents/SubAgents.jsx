@@ -1,111 +1,110 @@
-import MasterLayout from '@/Layouts/MasterLayout'
-import { Head } from '@inertiajs/react'
 import React, { useState, useEffect } from 'react'
 import { Title, Button, Modal, TextInput, Select, Grid, Switch, Group, LoadingOverlay } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import axios from 'axios'
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { useDisclosure } from '@mantine/hooks'
-import { useRef } from 'react'
-import SubAgents from './SubAgents'
 
-const Index = (props) => {
-    const { agencyTypes, locations, routes } = props;
+const SubAgents = (props) => {
+    const { agents, agencyTypes, locations, routes } = props;
     const [loading, setLoading] = useState(true);
-    const [updatedAgents, setUpdatedAgents] = useState([])
+    const [subAgents, setsubAgents] = useState([])
 
     useEffect(() => {
-        refreshData();
+        loadSubAgents();
     }, [])
 
-    const refreshData = () => {
+    const loadSubAgents = () => {
         setLoading(true);
-        axios.get('/api/agents')
+        axios.get(`/api/subagents`)
             .then(response => {
-                setUpdatedAgents(response.data)
+                setsubAgents(response.data)
             })
             .catch(error => {
                 console.error('Error fetching agents:', error)
-            }).finally(()=>{
+            }).finally(() => {
                 setLoading(false);
-            })
+            });
     }
 
+
     return (
-        <MasterLayout {...props}>
-            <Head title="Agents" />
-            <div className="p-6 relative">
-                <div className="flex justify-between items-center my-2">
-                    <Title order={2}>Agents</Title>
-                    <div className="action">
-                        <AddNewAgent
-                            agencyTypes={agencyTypes}
-                            locations={locations}
-                            routes={routes}
-                            onSuccess={refreshData}
-                        />
-                    </div>
+        <>
+            <div className="flex justify-between items-center my-2">
+                <Title order={2}>Sub Agents</Title>
+                <div className="action">
+                    <AddNewSubAgent
+                        agents={agents}
+                        agencyTypes={agencyTypes}
+                        locations={locations}
+                        routes={routes}
+                        onSuccess={loadSubAgents}
+                    />
                 </div>
-                <div className="my-4 relative">
-                    <div className="w-full min-h-64 border bg-white  border-gray-300 shadow-sm rounded-lg overflow-x-auto">
-                        <table className="min-w-full ">
-                            <thead className="bg-gray-100">
-                                <tr>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[150px] ">Name</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[90px] ">Phone</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[90px] ">Email</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[150px] ">Agency Type</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[80px] ">Pin</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[120px] ">Location</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[150px] ">Route</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[80px] ">Late City</th>
-                                    <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[120px] ">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white divide-y divide-gray-200">
-                                {updatedAgents && updatedAgents.map((agent) => (
-                                    <tr key={agent.id} className="hover:bg-gray-50">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{agent.name}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.phone}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.email}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.agency_type.name}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.postal_code}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.location?.name}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <span>
-                                                {agent.route?.from_location?.name +" - "+ agent.route?.to_location?.name}
-                                            </span>
-                                        </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.is_latecity ? 'Yes' : 'No'}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <div className="flex space-x-2">
-                                                <EditAgent
-                                                    agent={agent}
-                                                    agencyTypes={agencyTypes}
-                                                    locations={locations}
-                                                    routes={routes}
-                                                    onSuccess={refreshData}
-                                                />
-                                                <DeleteAgent agent={agent} onDelete={refreshData} />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                    <LoadingOverlay visible={loading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
-                </div>
-                <hr className='my-6'/>
-                <SubAgents {...props} agents={updatedAgents}/>
             </div>
-        </MasterLayout>
+
+            <div className="my-4 relative">
+                <div className="w-full min-h-64 border bg-white  border-gray-300 shadow-sm rounded-lg overflow-x-auto">
+                    <table className="min-w-full ">
+                        <thead className="bg-gray-100">
+                            <tr>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[150px] ">Name</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[90px] ">Agency</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[90px] ">Phone</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[90px] ">Email</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[150px] ">Agency Type</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[80px] ">Pin</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[120px] ">Location</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[150px] ">Route</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[80px] ">Late City</th>
+                                <th className="font-bold px-6 py-3 text-left text-xs text-gray-500 uppercase tracking-wider min-w-[120px] ">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                            {subAgents && subAgents.map((agent) => (
+                                <tr key={agent.id} className="hover:bg-gray-50">
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{agent.name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{agent.parent?.name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.phone}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.email}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.agency_type.name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.postal_code}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.location?.name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <span>
+                                            {agent.route?.from_location?.name + " - " + agent.route?.to_location?.name}
+                                        </span>
+                                    </td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{agent.is_latecity ? 'Yes' : 'No'}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <div className="flex space-x-2">
+                                            <EditAgent
+                                                agent={agent}
+                                                agents={agents}
+                                                agencyTypes={agencyTypes}
+                                                locations={locations}
+                                                routes={routes}
+                                                onSuccess={loadSubAgents}
+                                            />
+                                            <DeleteAgent agent={agent} onDelete={loadSubAgents} />
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <LoadingOverlay visible={loading} zIndex={1000} overlayProps={{ radius: "sm", blur: 2 }} />
+            </div>
+        </>
     )
 }
 
-export default Index
+export default SubAgents
 
-const AddNewAgent = ({ agencyTypes, locations, routes, onSuccess }) => {
+
+
+const AddNewSubAgent = ({ agents, agencyTypes, locations, routes, onSuccess }) => {
     const [opened, setOpened] = useState(false)
     const [filteredRoutes, setFilteredRoutes] = useState(routes)
     const [loading, setLoading] = useState(false)
@@ -155,14 +154,22 @@ const AddNewAgent = ({ agencyTypes, locations, routes, onSuccess }) => {
 
     return (
         <>
-            <Button onClick={() => setOpened(true)} >Add New Agent</Button>
-            <Modal opened={opened} onClose={() => setOpened(false)} title="Add New Agent" size="xl">
+            <Button onClick={() => setOpened(true)} >New Subagent</Button>
+            <Modal opened={opened} onClose={() => setOpened(false)} title="Add Sub Agent" size="xl">
                 <form onSubmit={form.onSubmit(handleSubmit)}>
                     <Grid>
                         <Grid.Col span={7}>
                             <TextInput label="Name" {...form.getInputProps('name')} required />
                         </Grid.Col>
                         <Grid.Col span={5}>
+                            <Select
+                                label="Select Parent Agency"
+                                data={agents && agents.map(ag => ({ value: ag.id.toString(), label: ag.name }))}
+                                {...form.getInputProps('parent')}
+                                required
+                            />
+                        </Grid.Col>
+                        <Grid.Col span={3}>
                             <Select
                                 label="Select Type"
                                 data={agencyTypes && agencyTypes.map(type => ({ value: type.id.toString(), label: type.name }))}
@@ -171,13 +178,13 @@ const AddNewAgent = ({ agencyTypes, locations, routes, onSuccess }) => {
                             />
                         </Grid.Col>
 
-                        <Grid.Col span={4}>
+                        <Grid.Col span={3}>
                             <TextInput label="Phone" {...form.getInputProps('phone')} />
                         </Grid.Col>
-                        <Grid.Col span={4}>
+                        <Grid.Col span={3}>
                             <TextInput label="Email" {...form.getInputProps('email')} type="email" />
                         </Grid.Col>
-                        <Grid.Col span={4}>
+                        <Grid.Col span={3}>
                             <TextInput label="Fax No" {...form.getInputProps('fax_no')} />
                         </Grid.Col>
 
@@ -224,11 +231,10 @@ const AddNewAgent = ({ agencyTypes, locations, routes, onSuccess }) => {
     )
 }
 
-const EditAgent = ({ agent, agencyTypes, locations, routes, onSuccess }) => {
+const EditAgent = ({ agent, agents, agencyTypes, locations, routes, onSuccess }) => {
     const [opened, setOpened] = useState(false)
     const [filteredRoutes, setFilteredRoutes] = useState(routes)
-    const routeRef = useRef();
-    
+
     const form = useForm({
         initialValues: {
             name: agent.name,
@@ -238,7 +244,7 @@ const EditAgent = ({ agent, agencyTypes, locations, routes, onSuccess }) => {
             email: agent.email,
             postal_code: agent.postal_code,
             address: agent.address,
-            parent: '',
+            parent: agent.parent.toString(),
             is_latecity: agent.is_latecity,
             agency_type_id: agent.agency_type_id.toString(),
             location_id: agent.location_id.toString(),
@@ -288,6 +294,14 @@ const EditAgent = ({ agent, agencyTypes, locations, routes, onSuccess }) => {
                             <TextInput label="Name" {...form.getInputProps('name')} required />
                         </Grid.Col>
                         <Grid.Col span={5}>
+                            <Select
+                                label="Select Parent Agency"
+                                data={agents && agents.map(ag => ({ value: ag.id.toString(), label: ag.name }))}
+                                {...form.getInputProps('parent')}
+                                required
+                            />
+                        </Grid.Col>
+                        <Grid.Col span={3}>
                             <Select
                                 label="Select Type"
                                 data={agencyTypes && agencyTypes.map(type => ({ value: type.id.toString(), label: type.name }))}
