@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class StateController extends Controller
 {
+
+    public function api_data()
+    {
+        $states = State::get();
+        return response()->json($states);
+    }
     /**
      * Display a listing of the resource.
      */

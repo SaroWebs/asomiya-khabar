@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('late_city')->default(0);
             $table->string('mr_code')->nullable();
             $table->decimal('daily_rate', 5, 2)->nullable();
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }

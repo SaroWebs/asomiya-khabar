@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class ZoneController extends Controller
 {
+
+    public function api_data(Request $request)
+    {
+        $s_code = $request->input('state');
+        $query = Zone::query();
+        if ($s_code) {
+            $query->where('state_code', $s_code);
+        }
+        return response()->json($query->get());
+    }
     /**
      * Display a listing of the resource.
      */
@@ -28,7 +38,22 @@ class ZoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'state_code' => 'required|exists:states,code',
+        ]);
+
+        try {
+            $zone = Zone::create($validatedData);
+
+            if ($zone) {
+                return response()->json(['message' => 'Added'], 201);
+            } else {
+                return response()->json(['message' => 'Not added'], 400);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
     }
 
     /**

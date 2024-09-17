@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
-            $table->string('code')->unique();
+            $table->string('state_code');
+            $table->foreign('state_code')->references('code')->on('states')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });

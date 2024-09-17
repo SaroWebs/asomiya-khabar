@@ -1,146 +1,182 @@
 [
     {
-        "state_code": "AN",
-        "name": "Andaman and Nicobar Islands"
+        "code": "AN",
+        "name": "Andaman and Nicobar Islands",
+        "country": "India"
     },
     {
-        "state_code": "AP",
-        "name": "Andhra Pradesh"
+        "code": "AP",
+        "name": "Andhra Pradesh",
+        "country": "India"
     },
     {
-        "state_code": "AR",
-        "name": "Arunachal Pradesh"
+        "code": "AR",
+        "name": "Arunachal Pradesh",
+        "country": "India"
     },
     {
-        "state_code": "AS",
-        "name": "Assam"
+        "code": "AS",
+        "name": "Assam",
+        "country": "India"
     },
     {
-        "state_code": "BR",
-        "name": "Bihar"
+        "code": "BR",
+        "name": "Bihar",
+        "country": "India"
     },
     {
-        "state_code": "CH",
-        "name": "Chandigarh"
+        "code": "CH",
+        "name": "Chandigarh",
+        "country": "India"
     },
     {
-        "state_code": "CT",
-        "name": "Chhattisgarh"
+        "code": "CT",
+        "name": "Chhattisgarh",
+        "country": "India"
     },
     {
-        "state_code": "DN",
-        "name": "Dadra and Nagar Haveli and Daman and Diu"
+        "code": "DN",
+        "name": "Dadra and Nagar Haveli and Daman and Diu",
+        "country": "India"
     },
     {
-        "state_code": "DL",
-        "name": "Delhi"
+        "code": "DL",
+        "name": "Delhi",
+        "country": "India"
     },
     {
-        "state_code": "GA",
-        "name": "Goa"
+        "code": "GA",
+        "name": "Goa",
+        "country": "India"
     },
     {
-        "state_code": "GJ",
-        "name": "Gujarat"
+        "code": "GJ",
+        "name": "Gujarat",
+        "country": "India"
     },
     {
-        "state_code": "HR",
-        "name": "Haryana"
+        "code": "HR",
+        "name": "Haryana",
+        "country": "India"
     },
     {
-        "state_code": "HP",
-        "name": "Himachal Pradesh"
+        "code": "HP",
+        "name": "Himachal Pradesh",
+        "country": "India"
     },
     {
-        "state_code": "JK",
-        "name": "Jammu and Kashmir"
+        "code": "JK",
+        "name": "Jammu and Kashmir",
+        "country": "India"
     },
     {
-        "state_code": "JH",
-        "name": "Jharkhand"
+        "code": "JH",
+        "name": "Jharkhand",
+        "country": "India"
     },
     {
-        "state_code": "KA",
-        "name": "Karnataka"
+        "code": "KA",
+        "name": "Karnataka",
+        "country": "India"
     },
     {
-        "state_code": "KL",
-        "name": "Kerala"
+        "code": "KL",
+        "name": "Kerala",
+        "country": "India"
     },
     {
-        "state_code": "LA",
-        "name": "Ladakh"
+        "code": "LA",
+        "name": "Ladakh",
+        "country": "India"
     },
     {
-        "state_code": "LD",
-        "name": "Lakshadweep"
+        "code": "LD",
+        "name": "Lakshadweep",
+        "country": "India"
     },
     {
-        "state_code": "MP",
-        "name": "Madhya Pradesh"
+        "code": "MP",
+        "name": "Madhya Pradesh",
+        "country": "India"
     },
     {
-        "state_code": "MH",
-        "name": "Maharashtra"
+        "code": "MH",
+        "name": "Maharashtra",
+        "country": "India"
     },
     {
-        "state_code": "MN",
-        "name": "Manipur"
+        "code": "MN",
+        "name": "Manipur",
+        "country": "India"
     },
     {
-        "state_code": "ML",
-        "name": "Meghalaya"
+        "code": "ML",
+        "name": "Meghalaya",
+        "country": "India"
     },
     {
-        "state_code": "MZ",
-        "name": "Mizoram"
+        "code": "MZ",
+        "name": "Mizoram",
+        "country": "India"
     },
     {
-        "state_code": "NL",
-        "name": "Nagaland"
+        "code": "NL",
+        "name": "Nagaland",
+        "country": "India"
     },
     {
-        "state_code": "OR",
-        "name": "Odisha"
+        "code": "OR",
+        "name": "Odisha",
+        "country": "India"
     },
     {
-        "state_code": "PY",
-        "name": "Puducherry"
+        "code": "PY",
+        "name": "Puducherry",
+        "country": "India"
     },
     {
-        "state_code": "PB",
-        "name": "Punjab"
+        "code": "PB",
+        "name": "Punjab",
+        "country": "India"
     },
     {
-        "state_code": "RJ",
-        "name": "Rajasthan"
+        "code": "RJ",
+        "name": "Rajasthan",
+        "country": "India"
     },
     {
-        "state_code": "SK",
-        "name": "Sikkim"
+        "code": "SK",
+        "name": "Sikkim",
+        "country": "India"
     },
     {
-        "state_code": "TN",
-        "name": "Tamil Nadu"
+        "code": "TN",
+        "name": "Tamil Nadu",
+        "country": "India"
     },
     {
-        "state_code": "TG",
-        "name": "Telangana"
+        "code": "TG",
+        "name": "Telangana",
+        "country": "India"
     },
     {
-        "state_code": "TR",
-        "name": "Tripura"
+        "code": "TR",
+        "name": "Tripura",
+        "country": "India"
     },
     {
-        "state_code": "UP",
-        "name": "Uttar Pradesh"
+        "code": "UP",
+        "name": "Uttar Pradesh",
+        "country": "India"
     },
     {
-        "state_code": "UT",
-        "name": "Uttarakhand"
+        "code": "UT",
+        "name": "Uttarakhand",
+        "country": "India"
     },
     {
-        "state_code": "WB",
-        "name": "West Bengal"
+        "code": "WB",
+        "name": "West Bengal",
+        "country": "India"
     }
 ]

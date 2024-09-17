@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class DistrictController extends Controller
 {
+
+    public function api_data(Request $request)
+    {
+        $s_code = $request->input('state');
+        $query = District::query();
+        if ($s_code) {
+            $query->where('state_code', $s_code);
+        }
+        return response()->json($query->get());
+    }
     /**
      * Display a listing of the resource.
      */
