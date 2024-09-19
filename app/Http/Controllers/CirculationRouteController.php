@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class CirculationRouteController extends Controller
 {
+    public function api_data(Request $req) {
+        $query = CirculationRoute::query();
+        if($req->location_id){
+            $query
+                ->where('from_location', $req->location_id)
+                ->orWhere('to_location', $req->location_id)
+                ;
+        }
+        return response()->json($query->get());
+    }
     /**
      * Display a listing of the resource.
      */
@@ -28,7 +38,22 @@ class CirculationRouteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'from_location' => 'required|exists:locations,id',
+            'to_location' => 'required|exists:locations,id',
+        ]);
+
+        try {
+            $route = CirculationRoute::create($validatedData);
+
+            if ($route) {
+                return response()->json(['message' => 'Added'], 201);
+            } else {
+                return response()->json(['message' => 'Not added'], 400);
+            }
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -58,8 +83,13 @@ class CirculationRouteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CirculationRoute $circulationRoute)
+    public function destroy(CirculationRoute $cr)
     {
-        //
+        try {
+            $cr->delete();
+            return response()->json(['message' => 'Deleted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 500);
+        }
     }
 }

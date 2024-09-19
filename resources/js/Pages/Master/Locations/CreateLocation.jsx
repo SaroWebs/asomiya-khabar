@@ -64,7 +64,7 @@ const CreateLocation = (props) => {
             return;
         }
 
-        const duplicate = items.some(item =>
+        const duplicate = items && items.length > 0 && items.some(item =>
             item.name.toLowerCase() === formInfo.name.toLowerCase() && item.state_id === formInfo.state_id
         );
 
@@ -77,13 +77,12 @@ const CreateLocation = (props) => {
         try {
             await axios.post('/location/create', formInfo);
             setSuccess('Location created successfully!');
-            close();
             reload();
-            setFormInfo({});
         } catch (er) {
             setError('Failed to create location.');
         } finally {
             setLoading(false);
+            handleClose();
         }
     };
 
@@ -142,11 +141,11 @@ const CreateLocation = (props) => {
                                 ))}
                             </select>
                         </div>
-                        
+
                         <div className="flex flex-col">
                             <div className="flex justify-between">
                                 <label className="text-xs font-semibold text-gray-700" htmlFor="zns">Zone :</label>
-                                <AddNewZone type={'text'} />
+                                <AddNewZone type={'text'} reload={reload} />
                             </div>
                             <select
                                 className="text-sm py-2 px-3 mt-1 rounded-md border border-gray-300 focus:ring focus:ring-indigo-200 focus:border-indigo-300"

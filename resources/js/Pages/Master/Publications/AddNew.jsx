@@ -5,7 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import axios from 'axios';
 
 export function AddNewPublication(props) {
-    const {publications, reload} = props;
+    const {publications, reload, title="Create"} = props;
     const [opened, { open, close }] = useDisclosure(false);
 
     const form = useForm({
@@ -52,7 +52,7 @@ export function AddNewPublication(props) {
 
     return (
         <>
-            <Button onClick={open}>Create</Button>
+            <Button onClick={open}>{title}</Button>
 
             <Modal
                 opened={opened}

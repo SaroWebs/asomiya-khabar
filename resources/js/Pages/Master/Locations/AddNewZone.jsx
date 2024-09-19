@@ -3,7 +3,7 @@ import { useDisclosure } from '@mantine/hooks';
 import React, { useEffect, useState } from 'react'
 
 const AddNewZone = (props) => {
-    const { type = 'button' } = props;
+    const { type = 'button', reload } = props;
     const [opened, { open, close }] = useDisclosure(false);
     const [states, setStates] = useState([]);
     const [zones, setZones] = useState([]);
@@ -23,10 +23,13 @@ const AddNewZone = (props) => {
         setFormInfo({});
         setError('');
         setSuccess('');
-
+        getData();
+    }, []);
+    
+    const getData=()=>{
         axios.get(`/api/states`).then(res => { setStates(res.data) }).catch(er => console.log(er.message));
         axios.get(`/api/zones`).then(res => { setZones(res.data) }).catch(er => console.log(er.message));
-    }, []);
+    }
 
     const handleSubmit = async () => {
         if (!formInfo.state_code || !formInfo.name) {
@@ -42,18 +45,18 @@ const AddNewZone = (props) => {
             setError('Zone name already exists in the selected state.');
             return;
         }
-        console.log(formInfo);
         
         setLoading(true);
         try {
             await axios.post('/zone/create', formInfo);
             setSuccess('Zone created successfully!');
-            close();
             setFormInfo({});
+            reload();
         } catch (er) {
             setError('Failed to create location.');
         } finally {
             setLoading(false);
+            close();
         }
     };
 

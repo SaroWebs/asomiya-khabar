@@ -2,6 +2,7 @@ import MasterLayout from '@/Layouts/MasterLayout'
 import { Head } from '@inertiajs/react'
 import React, { useEffect, useState } from 'react'
 import LocationList from './LocationList';
+import RoutesList from './RoutesList';
 
 const index = (props) => {
     const { states } = props;
@@ -126,6 +127,9 @@ const index = (props) => {
 
                 <div className="my-4">
                     <LocationList items={filteredItems} states={states} reload={loadData} />
+                </div>
+                <div className="my-4">
+                    <RoutesList/>
                 </div>
             </div>
         </MasterLayout>

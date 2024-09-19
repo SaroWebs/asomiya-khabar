@@ -1,3 +1,4 @@
+import { AddNewPublication } from '@/Pages/Master/Publications/AddNew';
 import { Button, Modal, Radio, Select } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import React from 'react'
@@ -54,10 +55,12 @@ export default GlobalSettings
 const SetGlobalDetails = ({ info, setInfo, close }) => {
     const [publications, setPublications] = useState([]);
 
-
+    const loadData=()=>{
+        axios.get(`/api/publications`).then(res => { setPublications(res.data) }).catch(er => console.log(er.message));
+    }
 
     useEffect(() => {
-        axios.get(`/api/publications`).then(res => { setPublications(res.data) }).catch(er => console.log(er.message));
+        loadData();
     }, []);
 
     const handlePublicationChange = (value) => {
@@ -83,27 +86,33 @@ const SetGlobalDetails = ({ info, setInfo, close }) => {
     };
 
     return (
-        <div className="space-y-4">
-            <Select
-                label="Publication"
-                placeholder="Select a publication"
-                data={publications.map(pub => ({ value: pub.id.toString(), label: pub.name }))}
-                value={info.publication}
-                onChange={handlePublicationChange}
-            />
-            {publications.find(pub => pub.id.toString() === info.publication)?.editions.length > 0 && (
+        <div className="space-y-4 flex flex-col gap-4">
+            {publications.length < 1 ?(
+                <AddNewPublication title="Create Publication" publications={publications} reload={loadData}/>
+            ):(
+                <>
                 <Select
-                    label="Edition"
-                    placeholder="Select an edition"
-                    data={publications.find(pub => pub.id.toString() === info.publication)?.editions?.map(edition => ({ value: edition.id.toString(), label: edition.name })) || []}
-                    value={info.edition}
-                    onChange={(value) => setInfo(prev => ({ ...prev, edition: value }))}
+                    label="Publication"
+                    placeholder="Select a publication"
+                    data={publications.map(pub => ({ value: pub.id.toString(), label: pub.name }))}
+                    value={info.publication}
+                    onChange={handlePublicationChange}
                 />
-            )}
+                {publications.find(pub => pub.id.toString() === info.publication)?.editions.length > 0 && (
+                    <Select
+                        label="Edition"
+                        placeholder="Select an edition"
+                        data={publications.find(pub => pub.id.toString() === info.publication)?.editions?.map(edition => ({ value: edition.id.toString(), label: edition.name })) || []}
+                        value={info.edition}
+                        onChange={(value) => setInfo(prev => ({ ...prev, edition: value }))}
+                    />
+                )}
 
-            <Button onClick={handleSubmit}>
-                Set Global Settings
-            </Button>
+                <Button onClick={handleSubmit}>
+                    Set Global Settings
+                </Button>
+                </>
+            )}
         </div>
     );
 };

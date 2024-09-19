@@ -99,8 +99,6 @@ const index = (props) => {
 
 export default index
 
-
-
 const RemoveItem = (props) => {
     const { id, name, reload } = props;
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);

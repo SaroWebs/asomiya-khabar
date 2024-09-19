@@ -12,6 +12,8 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\FinSessionController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\CirculationRouteController;
+use App\Http\Controllers\ConsumerController;
 
 Route::controller(PagesController::class)->group(function () {
     Route::get('/', 'welcome');
@@ -40,6 +42,10 @@ Route::middleware('auth')->group(function () {
     });
 
     
+    Route::controller(CirculationRouteController::class)->group(function(){
+        Route::post('/c-route/create', 'store');
+        Route::delete('/c-route/{cr}', 'destroy');
+    });
     Route::controller(ZoneController::class)->group(function(){
         Route::post('/zone/create', 'store');
     });
@@ -67,6 +73,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/agency/create', 'store');
         Route::delete('/agency/{agent}', 'destroy');
         Route::put('/agency/{agent}', 'update');
+    });
+
+    Route::controller(ConsumerController::class)->group(function(){
+        Route::post('/consumer/create', 'store');
+        Route::post('/consumer_type/create', 'type_store');
+        Route::delete('/consumer/{consumer}', 'destroy');
+        Route::delete('/consumer_type/{consumer_type}', 'type_destroy');
+        Route::put('/consumer/{consumer}', 'update');
+        Route::put('/consumer_type/{consumer_type}', 'type_update');
     });
     
 });

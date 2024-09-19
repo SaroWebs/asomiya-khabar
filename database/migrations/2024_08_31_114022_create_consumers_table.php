@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('consumers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('consumer_type_id')->nullable()->constrained('consumer_types'); // setnull ondelete
+            $table->foreignId('consumer_type_id')->nullable()->constrained('consumer_types'); 
             $table->foreignId('location_id')->nullable()->constrained('locations');
-            $table->foreignId('zone_id')->nullable()->constrained('zones');
-            $table->foreignId('circulation_route_id')->nullable()->constrained('circulation_routes');
+            $table->foreignId('circulation_route_id')->nullable()->constrained('circulation_routes'); 
             $table->text('address')->nullable();
             $table->string('pin')->nullable();
             $table->string('phone')->nullable();

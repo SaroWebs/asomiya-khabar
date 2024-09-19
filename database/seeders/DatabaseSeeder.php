@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         //     'active' => 1,
         // ]);
 
-        // Seed states
+        // // Seed states
         // $states = json_decode(file_get_contents(resource_path('js/Data/states.json')), true);
         // foreach ($states as $state) {
         //     \App\Models\State::create([
