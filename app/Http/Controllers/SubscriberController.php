@@ -28,7 +28,15 @@ class SubscriberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|email',
+            'address' => 'nullable|string',
+        ]);
+
+        $subscriber = Subscriber::create($validatedData);
+        return response()->json(['message' => 'Subscriber created successfully', 'subscriber' => $subscriber], 201);
     }
 
     /**
@@ -52,7 +60,15 @@ class SubscriberController extends Controller
      */
     public function update(Request $request, Subscriber $subscriber)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'phone' => 'nullable|string',
+            'email' => 'nullable|email',
+            'address' => 'nullable|string',
+        ]);
+
+        $subscriber->update($validatedData);
+        return response()->json(['message' => 'Subscriber updated successfully', 'subscriber' => $subscriber], 200);
     }
 
     /**
@@ -60,6 +76,13 @@ class SubscriberController extends Controller
      */
     public function destroy(Subscriber $subscriber)
     {
-        //
+        $subscriber->delete();
+        return response()->json(['message' => 'Subscriber deleted successfully'], 200);
+    }
+
+    public function api_data()
+    {
+        $subscribers = Subscriber::all();
+        return response()->json($subscribers);
     }
 }

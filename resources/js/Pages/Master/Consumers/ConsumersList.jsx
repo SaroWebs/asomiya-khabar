@@ -12,6 +12,7 @@ const ConsumersList = (props) => {
     const [activePage, setActivePage] = useState(1); // Added state for pagination
     const [pageSize, setPageSize] = useState(10); // Added state for page size
 
+
     useEffect(() => {
         setActivePage(1); // Reset to the first page whenever pageSize changes
     }, [pageSize]);
@@ -26,9 +27,15 @@ const ConsumersList = (props) => {
     const rows = currentPageData.map((item) => ( // Updated rows mapping
         <Table.Tr key={item.id}>
             <Table.Td>{item.name}</Table.Td>
-            <Table.Td>{item.consumer_type_id}</Table.Td>
-            <Table.Td>{item.location_id}</Table.Td>
-            <Table.Td>{item.circulation_route_id}</Table.Td>
+            <Table.Td>{item.consumer_type ? item.consumer_type.name : ''}</Table.Td>
+            <Table.Td>{item.location ? item.location.name : ''}</Table.Td>
+            <Table.Td>
+                <div className="">
+                    <span>{item.circulation_route && item.circulation_route.from_location ? item.circulation_route.from_location.name :''}</span>
+                    -
+                    <span>{item.circulation_route && item.circulation_route.to_location ? item.circulation_route.to_location.name :''}</span>
+                </div>
+            </Table.Td>
             <Table.Td>{item.address}</Table.Td>
             <Table.Td>{item.pin}</Table.Td>
             <Table.Td>{item.phone}</Table.Td>
@@ -57,23 +64,23 @@ const ConsumersList = (props) => {
             <ScrollArea h={300} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
                 {items.length > 0 ? (
                     <div className='p-4 border rounded-lg'>
-                    <Table miw={700} verticalSpacing="md">
-                        <Table.Thead>
-                            <Table.Tr>
-                                <Table.Th>Name</Table.Th>
-                                <Table.Th>Consumer Type</Table.Th>
-                                <Table.Th>Location</Table.Th>
-                                <Table.Th>Circulation Route</Table.Th>
-                                <Table.Th>Address</Table.Th>
-                                <Table.Th>PIN</Table.Th>
-                                <Table.Th>Phone</Table.Th>
-                                <Table.Th>Fax</Table.Th>
-                                <Table.Th>Email</Table.Th>
-                                <Table.Th></Table.Th>
-                            </Table.Tr>
-                        </Table.Thead>
-                        <Table.Tbody>{rows}</Table.Tbody>
-                    </Table>
+                        <Table miw={700} verticalSpacing="md">
+                            <Table.Thead>
+                                <Table.Tr>
+                                    <Table.Th>Name</Table.Th>
+                                    <Table.Th>Consumer Type</Table.Th>
+                                    <Table.Th>Location</Table.Th>
+                                    <Table.Th>Circulation Route</Table.Th>
+                                    <Table.Th>Address</Table.Th>
+                                    <Table.Th>PIN</Table.Th>
+                                    <Table.Th>Phone</Table.Th>
+                                    <Table.Th>Fax</Table.Th>
+                                    <Table.Th>Email</Table.Th>
+                                    <Table.Th></Table.Th>
+                                </Table.Tr>
+                            </Table.Thead>
+                            <Table.Tbody>{rows}</Table.Tbody>
+                        </Table>
                     </div>
                 ) : (
                     <div>No Consumers found</div>
@@ -121,11 +128,13 @@ const EditConsumer = ({ item, reload }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.put(`/consumer/update/${item.id}`, formInfo);
+            const response = await axios.put(`/consumer/${item.id}`, formInfo);
             if (response.status === 200) {
                 reload();
                 close();
@@ -168,7 +177,7 @@ const EditConsumer = ({ item, reload }) => {
             console.log(err.message);
         });
     }
-    
+
     return (
         <>
             <Button variant="filled" color="cyan" onClick={open}>
@@ -209,7 +218,7 @@ const EditConsumer = ({ item, reload }) => {
                                 const fromLoc = locations.find(loc => loc.id === route.from_location);
                                 const toLoc = locations.find(loc => loc.id === route.to_location);
                                 let lbl = `${fromLoc ? fromLoc.name : route.from_location} - ${toLoc ? toLoc.name : route.to_location}`;
-                                return ({ value: route.id.toString(), label: lbl});
+                                return ({ value: route.id.toString(), label: lbl });
                             })}
                             value={formInfo.circulation_route_id}
                             onChange={(value) => setFormInfo({ ...formInfo, circulation_route_id: value })}

@@ -43,6 +43,10 @@ class PagesController extends Controller
     {
         return Inertia::render('Master/Consumers/index'); 
     }
+    public function master_subscribers()
+    {
+        return Inertia::render('Master/Subscribers/index'); 
+    }
     
     public function master_publications()
     {
@@ -52,5 +56,30 @@ class PagesController extends Controller
     {
 
         return Inertia::render('Master/Locations/index',['states'=> State::get()]); 
+    }
+
+    public function dispatchEntry() {
+        return Inertia::render('Tasks/DispatchEntry/index');
+    }
+
+    public function labelPrinting() {
+        return Inertia::render('Tasks/LabelPrint/index');
+    }
+
+    public function printOrder() {
+        // Logic for print order
+        return Inertia::render('Tasks/PrintOrder/index');
+    }
+
+    public function challanGeneration() {
+        // Logic for challan generation
+    }
+
+    public function dispatchChecklist() {
+        // Logic for dispatch checklist
+    }
+
+    public function unsoldReturnEntry() {
+        // Logic for unsold return entry
     }
 }

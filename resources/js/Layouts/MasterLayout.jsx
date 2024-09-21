@@ -28,14 +28,15 @@ const mockdata = [
         label: 'Tasks',
         icon: FaTasks,
         links: [
-            { label: 'Dispatch Entry', link: '/' },
-            { label: 'Label printing', link: '/' },
-            { label: 'Print Order', link: '/' },
-            { label: 'Challan Generation', link: '/' },
-            { label: 'Dispatch Checklist', link: '/' },
-            { label: 'Unsold Return Entry', link: '/' },
+            { label: 'Dispatch Entry', link: '/task/dispatch-entry' },
+            { label: 'Label printing', link: '/task/label-printing' },
+            { label: 'Print Order', link: '/task/print-order' },
+            { label: 'Challan Generation', link: '/task/challan' },
+            { label: 'Dispatch Checklist', link: '/task/dispatch-checklist' },
+            { label: 'Unsold Return Entry', link: '/task/unsold-return-entry' },
         ],
     },
+
     {
         label: 'Register',
         icon: FaFileAlt,

@@ -13,7 +13,7 @@ class ConsumerController extends Controller
      */
     public function api_data()
     {
-        $consumers = Consumer::get();
+        $consumers = Consumer::with(['location', 'consumer_type', 'circulation_route.fromLocation', 'circulation_route.toLocation'])->get();
         return response()->json($consumers);
     }
     
@@ -71,31 +71,35 @@ class ConsumerController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Consumer $consumer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Consumer $consumer)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Consumer $consumer)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'consumer_type_id' => 'nullable|exists:consumer_types,id',
+            'location_id' => 'nullable|exists:locations,id',
+            'circulation_route_id' => 'nullable|exists:circulation_routes,id',
+            'address' => 'nullable|string',
+            'pin' => 'nullable|string',
+            'phone' => 'nullable|string',
+            'fax' => 'nullable|string',
+            'email' => 'nullable|email',
+        ]);
+
+        $consumer->update($validatedData);
+
+        return response()->json(['message' => 'Consumer updated successfully', 'consumer' => $consumer], 200);
     }
     public function type_update(Request $request, ConsumerType $consumer_type)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|unique:consumer_types,name,' . $consumer_type->id
+        ]);
+
+        $consumer_type->update($validatedData);
+
+        return response()->json(['message' => 'Consumer type updated successfully', 'consumerType' => $consumer_type], 200);
     }
 
     /**
@@ -103,10 +107,12 @@ class ConsumerController extends Controller
      */
     public function destroy(Consumer $consumer)
     {
-        //
+        $consumer->delete();
+        return response()->json(['message' => 'Consumer deleted successfully'], 200);
     }
     public function type_destroy(ConsumerType $consumer_type)
     {
-        //
+        $consumer_type->delete();
+        return response()->json(['message' => 'Consumer type deleted successfully'], 200);
     }
 }

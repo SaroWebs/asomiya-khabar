@@ -7,18 +7,19 @@ use App\Models\Location;
 use App\Models\FinSession;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use App\Models\CirculationRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\AgentController;
-use App\Http\Controllers\CirculationRouteController;
-use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\EditionController;
+use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\FinSessionController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\PublicationController;
-use App\Models\CirculationRoute;
+use App\Http\Controllers\CirculationRouteController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -65,4 +66,8 @@ Route::controller(ConsumerController::class)->group(function(){
 
 Route::controller(CirculationRouteController::class)->group(function(){
     Route::get('/c-routes', 'api_data');
+});
+
+Route::controller(SubscriberController::class)->group(function(){
+    Route::get('/subscribers', 'api_data');
 });

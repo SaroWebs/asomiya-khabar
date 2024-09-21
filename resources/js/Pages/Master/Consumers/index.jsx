@@ -13,8 +13,7 @@ const index = (props) => {
     const getItems = () => {
         axios.get('/api/consumers')
             .then(res => setItems(res.data))
-            .catch(err => console.log(err.message))
-            .finally(() => console.log('completed'));
+            .catch(err => console.log(err.message));
     }
     useEffect(() => {
         getItems();
