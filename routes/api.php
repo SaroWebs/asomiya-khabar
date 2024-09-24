@@ -1,13 +1,6 @@
 <?php
 
-use App\Models\Zone;
-use App\Models\State;
-use App\Models\District;
-use App\Models\Location;
-use App\Models\FinSession;
-use App\Models\Publication;
 use Illuminate\Http\Request;
-use App\Models\CirculationRoute;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\AgentController;
@@ -59,6 +52,7 @@ Route::controller(AgentController::class)->group(function(){
     Route::get('/agents', 'api_data');
     Route::get('/subagents', 'get_subagents');
 });
+
 Route::controller(ConsumerController::class)->group(function(){
     Route::get('/consumers', 'api_data');
     Route::get('/consumer/types', 'get_types');

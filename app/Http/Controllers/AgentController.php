@@ -131,10 +131,12 @@ class AgentController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function api_data()
+    public function api_data(Request $request)
     {
         try {
-            $agents = Agent::where('parent', null)->with(['agency_type', 'location', 'route.fromLocation','route.toLocation'])->get();
+            $query = Agent::query();
+            $query->with(['agency_type', 'location', 'route.fromLocation','route.toLocation']);
+            $agents = $query->where('parent', null)->get();
             return response()->json($agents);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Failed to fetch agents: ' . $e->getMessage()], 500);

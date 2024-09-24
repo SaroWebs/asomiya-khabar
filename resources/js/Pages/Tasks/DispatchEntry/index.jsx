@@ -1,39 +1,16 @@
 import MasterLayout from '@/Layouts/MasterLayout'
 import { Head } from '@inertiajs/react'
-import { Button, Title, Select, Modal, TextInput, Checkbox, NumberInput } from '@mantine/core'
-import { useDisclosure } from '@mantine/hooks'
+import { Select, Title } from '@mantine/core'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import CreateDispatch from './CreateDispatch'
+import DispatchList from './DispatchList'
 
 const index = (props) => {
-    const [items, setItems] = useState([]);
     const [publications, setPublications] = useState([]);
-    const [selectedPublication, setSelectedPublication] = useState('');
-    const [dispatchForm, setDispatchForm] = useState({
-        date: '',
-        free: false,
-        paid: false,
-        membership: '',
-        subscription: '',
-        packets: 0,
-        returned: 0,
-        billid: '',
-        rate: 0,
-        commission_rate: 0,
-        billded_copies: 0,
-        credit_notes: '',
-    });
-
-    const getItems = async () => {
-        try {
-            const response = await axios.get(`/task-data/dispatches?publication_id=${selectedPublication}`);
-            setItems(response.data);
-        } catch (error) {
-            console.error('Error fetching items:', error);
-        } finally {
-            console.log('Items fetched');
-        }
-    }
+    const [agents, setAgents] = useState([]);
+    const [items, setItems] = useState([]);
+    const [selectedPublication, setSelectedPublication]=useState('');
 
     const getPublications = async () => {
         try {
@@ -46,24 +23,48 @@ const index = (props) => {
         }
     }
 
-    const handleSubmit = async () => {
+    const getAgents = async () => {
         try {
-            await axios.post('/dispatch/create', dispatchForm);
-            console.log('Dispatch entry created successfully');
+            const response = await axios.get(`/api/agents`);
+            setAgents(response.data);
         } catch (error) {
-            console.error('Error creating dispatch entry:', error);
+            console.error('Error fetching agents:', error);
         }
     }
 
+
+    useEffect(() => {
+        getPublications();
+        getAgents();
+    }, []);
+
     useEffect(() => {
         if (selectedPublication) {
-            getItems();
+            reload();
         }
     }, [selectedPublication]);
 
     useEffect(() => {
-        getPublications();
-    }, []);
+        let active_publication = publications.find(pb => pb.active == 1);
+        if (active_publication) {
+            setSelectedPublication(active_publication.id.toString());
+        }
+    }, [publications]);
+
+    const reload = async (search="") => {
+        if(!selectedPublication) return;
+        try {
+            const params = search ? {search: search} : {};
+            const response = await axios.get(`/publication/dispatches/${selectedPublication}`, {
+                params: params
+            });
+            setItems(response.data);
+        } catch (error) {
+            console.error('Error fetching items:', error);
+        } finally {
+            console.log('Items fetched');
+        }
+    }
 
     return (
         <MasterLayout {...props}>
@@ -84,31 +85,22 @@ const index = (props) => {
                                         label: publication.name,
                                     }))}
                                     value={selectedPublication}
-                                    onChange={setSelectedPublication}
+                                    onChange={(val) => setSelectedPublication(val)}
                                 />
                             </div>
                             {/* action buttons */}
                             <div className="flex items-center">
-                                <CreateDispatch onFormSubmit={handleSubmit} />
+                                <CreateDispatch publications={publications} agents={agents} reload={reload} />
                             </div>
                         </div>
                         <hr />
-                        {/* justify end (show record, search, filter) */}
-                        <div className="flex justify-between my-2">
-                            <div className="flex items-end">
-                                <div className="flex flex-col">
-                                    <label htmlFor='records' className="mx-2">Show</label>
-                                    <select id='records' className="form-select">
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                    </select>
-                                </div>
-                                <input type="text" className="form-input" placeholder="Search" />
-                            </div>
-                        </div>
-                        <hr />
-                        {/* table */}
+
+                        <DispatchList
+                            publications={publications}
+                            agents={agents}
+                            reload={reload}
+                            items={items}
+                        />
                     </div>
 
 
@@ -120,138 +112,3 @@ const index = (props) => {
 }
 
 export default index
-
-const CreateDispatch = ({ onFormSubmit }) => {
-    const [opened, { open, close }] = useDisclosure(false);
-    const [dispatchForm, setDispatchForm] = useState({
-        date: '',
-        free: false,
-        paid: false,
-        membership: '',
-        subscription: '',
-        packets: 0,
-        returned: 0,
-        billid: '',
-        rate: 0,
-        commission_rate: 0,
-        billded_copies: 0,
-        credit_notes: '',
-    });
-
-    const handleFormChange = (event) => {
-        const { name, value, type, checked } = event.target;
-        setDispatchForm((prevForm) => ({
-            ...prevForm,
-            [name]: type === 'checkbox' ? checked : value,
-        }));
-    };
-
-    return (
-        <>
-            <Button color="blue" onClick={open}>Create Dispatch Entry</Button>
-            <Modal
-                opened={opened}
-                onClose={close}
-                title="Create Dispatch Entry"
-            >
-                <form onSubmit={() => onFormSubmit(dispatchForm)} className="grid grid-cols-1 gap-4">
-                    <div className="grid grid-cols-2 gap-4">
-                        <TextInput
-                            label="Date"
-                            placeholder="YYYY-MM-DD"
-                            name="date"
-                            value={dispatchForm.date}
-                            onChange={handleFormChange}
-                        />
-                        <Checkbox
-                            label="Free"
-                            name="free"
-                            checked={dispatchForm.free}
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <Checkbox
-                            label="Paid"
-                            name="paid"
-                            checked={dispatchForm.paid}
-                            onChange={handleFormChange}
-                        />
-                        <TextInput
-                            label="Membership"
-                            placeholder="Membership"
-                            name="membership"
-                            value={dispatchForm.membership}
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <TextInput
-                            label="Subscription"
-                            placeholder="Subscription"
-                            name="subscription"
-                            value={dispatchForm.subscription}
-                            onChange={handleFormChange}
-                        />
-                        <NumberInput
-                            label="Packets"
-                            placeholder="0"
-                            name="packets"
-                            value={dispatchForm.packets}
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <NumberInput
-                            label="Returned"
-                            placeholder="0"
-                            name="returned"
-                            value={dispatchForm.returned}
-                            onChange={handleFormChange}
-                        />
-                        <TextInput
-                            label="Bill ID"
-                            placeholder="Bill ID"
-                            name="billid"
-                            value={dispatchForm.billid}
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <NumberInput
-                            label="Rate"
-                            placeholder="0"
-                            name="rate"
-                            value={dispatchForm.rate}
-                            onChange={handleFormChange}
-                        />
-                        <NumberInput
-                            label="Commission Rate"
-                            placeholder="0"
-                            name="commission_rate"
-                            value={dispatchForm.commission_rate}
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <NumberInput
-                            label="Billed Copies"
-                            placeholder="0"
-                            name="billded_copies"
-                            value={dispatchForm.billded_copies}
-                            onChange={handleFormChange}
-                        />
-                        <TextInput
-                            label="Credit Notes"
-                            placeholder="Credit Notes"
-                            name="credit_notes"
-                            value={dispatchForm.credit_notes}
-                            onChange={handleFormChange}
-                        />
-                    </div>
-                    <Button type="submit" color="blue" className="mt-4">Submit</Button>
-                </form>
-            </Modal>
-        </>
-    );
-}

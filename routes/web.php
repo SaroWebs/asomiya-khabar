@@ -102,6 +102,10 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(DispatchController::class)->group(function () {
         Route::get('/task-data/dispatches', 'get_data');
+        Route::get('/publication/dispatches/{publication}', 'data_by_publication');
+        Route::post('/dispatch/store', 'store'); 
+        Route::put('/dispatch/update/{dispatch}', 'update');
+        Route::delete('/dispatch/{dispatch}', 'destroy');
     });
 });
 

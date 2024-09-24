@@ -42,7 +42,7 @@ const Editions = ({ publications }) => {
 
     const handleRemoveEdition = async (editionId) => {
         try {
-            await axios.delete(`/api/editions/${editionId}`);
+            await axios.delete(`/edition/${editionId}`);
             loadEditions();
         } catch (error) {
             console.error('Error removing edition:', error);
@@ -83,7 +83,7 @@ const Editions = ({ publications }) => {
             </div>
 
             {selectedPublication && (
-                <>
+                <div className='flex w-full overflow-x-auto'>
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
@@ -129,7 +129,7 @@ const Editions = ({ publications }) => {
                             ))}
                         </tbody>
                     </table>
-                </>
+                </div>
             )}
 
             <Modal
