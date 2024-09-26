@@ -29,7 +29,7 @@ const mockdata = [
         icon: FaTasks,
         links: [
             { label: 'Dispatch Entry', link: '/task/dispatch-entry' },
-            { label: 'Label printing', link: '/task/label-printing' },
+            // { label: 'Label printing', link: '/task/label-printing' },
             { label: 'Print Order', link: '/task/print-order' },
             { label: 'Challan Generation', link: '/task/challan' },
             { label: 'Dispatch Checklist', link: '/task/dispatch-checklist' },

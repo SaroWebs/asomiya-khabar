@@ -5,12 +5,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import CreateDispatch from './CreateDispatch'
 import DispatchList from './DispatchList'
+import LabelPrintAll from './LabelPrintAll'
 
 const index = (props) => {
     const [publications, setPublications] = useState([]);
     const [agents, setAgents] = useState([]);
     const [items, setItems] = useState([]);
-    const [selectedPublication, setSelectedPublication]=useState('');
+    const [selectedPublication, setSelectedPublication] = useState('');
 
     const getPublications = async () => {
         try {
@@ -51,10 +52,10 @@ const index = (props) => {
         }
     }, [publications]);
 
-    const reload = async (search="") => {
-        if(!selectedPublication) return;
+    const reload = async (search = "") => {
+        if (!selectedPublication) return;
         try {
-            const params = search ? {search: search} : {};
+            const params = search ? { search: search } : {};
             const response = await axios.get(`/publication/dispatches/${selectedPublication}`, {
                 params: params
             });
@@ -74,7 +75,7 @@ const index = (props) => {
                     <Title order={2}>Dispatch Entry</Title>
                 </div>
                 <div className="my-4 relative">
-                    <div className="w-full min-h-64 p-4 border bg-white  border-gray-300 shadow-sm rounded-lg overflow-x-auto">
+                    <div className="w-full  px-4 py-2 min-h-64 p-4 border bg-white  border-gray-300 shadow-sm rounded-lg overflow-x-auto">
                         <div className="flex justify-between items-center my-2">
                             <div className="">
                                 <Select
@@ -89,7 +90,8 @@ const index = (props) => {
                                 />
                             </div>
                             {/* action buttons */}
-                            <div className="flex items-center">
+                            <div className="flex items-center gap-4">
+                                <LabelPrintAll items={items}/> 
                                 <CreateDispatch publications={publications} agents={agents} reload={reload} />
                             </div>
                         </div>
@@ -102,8 +104,6 @@ const index = (props) => {
                             items={items}
                         />
                     </div>
-
-
                 </div>
 
             </div>

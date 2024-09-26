@@ -2,6 +2,7 @@ import { Select, TextInput, Table, Pagination } from '@mantine/core';
 import React, { useEffect, useState } from 'react'
 import EditEntry from './EditEntry';
 import DeleteEntry from './DeleteEntry';
+import LabelPrint from './LabelPrint';
 
 const DispatchList = (props) => {
     const { publications, agents, reload, items } = props;
@@ -34,6 +35,7 @@ const DispatchList = (props) => {
                     <div className="flex gap-2 items-center">
                         <EditEntry item={item} publications={publications} agents={agents}  reload={reload}/>
                         <DeleteEntry item={item} reload={reload}/>
+                        <LabelPrint item={item}/>
                     </div>
                 </Table.Td>
                 <Table.Td>

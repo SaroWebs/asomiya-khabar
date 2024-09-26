@@ -15,16 +15,16 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <div className="max-w-screen-2xl">
+        <div className="max-w-screen">
             <Head title="Log in" />
             <div className="rounded-sm bg-white shadow-default relative">
                 
-                <div className="relative w-full h-full grid grid-cols-2 justify-center items-center">
-                    <div className="min-h-screen flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500">
+                <div className="relative w-full h-full grid md:grid-cols-2 justify-center items-center">
+                    <div className="min-h-screen hidden md:flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500">
                         <img src="/static/images/logox.png" alt="" className='bg-white py-8 px-12 rounded-md'/>
                     </div>
                     <div className="w-full min-h-[95vh] flex justify-center items-center">
-                        <div className="min-w-[450px] p-16 sm:p-12.5 xl:p-17.5 bg-white shadow-md rounded-lg">
+                        <div className="min-w-[400px] max-w-[550px] p-16 mx-auto sm:p-12.5 xl:p-17.5 bg-white shadow-md rounded-lg">
                             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
                             <h2 className="mb-9 text-2xl font-bold text-black sm:text-title-xl2">
                                 Sign In
@@ -43,7 +43,6 @@ export default function Login({ status, canResetPassword }) {
                                             placeholder="Enter your email"
                                             className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none"
                                         />
-
                                         <span className="absolute right-4 top-4">
                                             <svg
                                                 className="fill-current"
@@ -119,7 +118,7 @@ export default function Login({ status, canResetPassword }) {
                                 </div>
 
                                 <div className="mb-5">
-                                    <div className="flex items-center justify-between mt-4 gap-6">
+                                    <div className="flex  flex-col md:flex-row md:items-center justify-between mt-4 gap-6">
                                         {canResetPassword ? (
                                             <Link
                                                 href={route('password.request')}
