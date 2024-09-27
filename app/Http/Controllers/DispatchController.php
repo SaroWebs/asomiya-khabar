@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Dispatch;
 use App\Models\Publication;
 use Illuminate\Http\Request;
@@ -31,20 +32,49 @@ class DispatchController extends Controller
 
     public function data_by_publication(Request $request, Publication $publication)
     {
-        $query = Dispatch::query();
-        $query->where('publication_id', $publication->id);
-
+        $query = Dispatch::query()
+            ->where('publication_id', $publication->id);
+    
+        // Handle search parameter
         if ($request->has('search')) {
-            $query->where('id', 'like', '%' . $request->input('search') . '%')
-                ->orWhere('bill_id', 'like', '%' . $request->input('search') . '%')
-                ->orWhereHas('agent', function ($q) use ($request) {
-                    $q->where('name', 'like', '%' . $request->input('search') . '%');
-                });
+            $searchTerm = $request->input('search');
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('id', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('bill_id', 'like', '%' . $searchTerm . '%')
+                  ->orWhereHas('agent', function ($q) use ($searchTerm) {
+                      $q->where('name', 'like', '%' . $searchTerm . '%');
+                  });
+            });
         }
-
-        $dispatches = $query->with(['publication','agent'])->get();
+    
+        // Handle daily dispatches (exact date)
+        if ($request->has('exact_date')) {
+            $exactDate = Carbon::parse($request->input('exact_date'))->startOfDay();
+            $query->whereDate('date', '=', $exactDate);
+        }
+        else {
+            // Handle date filters for non-daily dispatches
+            if ($request->has('from_date') || $request->has('to_date')) {
+                $fromDate = $request->has('from_date') ? Carbon::parse($request->input('from_date'))->startOfDay() : null;
+                $toDate = $request->has('to_date') ? Carbon::parse($request->input('to_date'))->endOfDay() : null;
+    
+                if ($fromDate && $toDate) {
+                    $query->whereBetween('date', [$fromDate, $toDate]);
+                } elseif ($fromDate) {
+                    $query->where('date', '>=', $fromDate);
+                } elseif ($toDate) {
+                    $query->where('date', '<=', $toDate);
+                }
+            }
+        }
+    
+        // Fetch and return dispatches with related publication and agent
+        $dispatches = $query->with(['publication', 'agent'])->get();
+    
         return response()->json($dispatches);
     }
+    
+    
 
     public function store(Request $request) // New method for storing dispatch data
     {

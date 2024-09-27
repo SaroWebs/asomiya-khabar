@@ -82,8 +82,8 @@ const DispatchList = (props) => {
                 </div>
             </div>
             <hr />
-            <Table.ScrollContainer minWidth={500}>
-                <Table className=''>
+            <Table.ScrollContainer minWidth={500}  className='min-h-96'>
+                <Table>
                     <Table.Thead>
                         <Table.Tr>
                             <Table.Th className='min-w-[150px]'></Table.Th>
