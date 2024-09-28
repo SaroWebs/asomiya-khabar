@@ -41,8 +41,8 @@ const mockdata = [
         label: 'Register',
         icon: FaFileAlt,
         links: [
-            { label: 'Sales Register', link: '/' },
-            { label: 'Bill Register', link: '/' },
+            { label: 'Sales Register', link: '/register/sales-register' },
+            { label: 'Bill Register', link: '/register/bill-register' },
             { label: 'Security Deposit', link: '/' },
             { label: 'Receipts', link: '/' },
             { label: 'Payments', link: '/' },

@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/task/challan', 'challanGeneration');
         Route::get('/task/dispatch-checklist', 'dispatchChecklist');
         Route::get('/task/unsold-return-entry', 'unsoldReturnEntry');
+        // register
+        Route::get('/register/sales-register', 'salesRegister');
     });
 
     Route::controller(ProfileController::class)->group(function () {

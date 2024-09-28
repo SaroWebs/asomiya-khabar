@@ -44,7 +44,7 @@ class Agent extends Model
         return $this->belongsTo(CirculationRoute::class);
     }
 
-    public function dispatch()
+    public function dispatches()
     {
         return $this->hasMany(Dispatch::class);
     }

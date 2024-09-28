@@ -8,10 +8,12 @@ use App\Models\State;
 use App\Models\Location;
 use App\Models\AgencyType;
 use App\Models\CirculationRoute;
+use App\Models\Publication;
 
 class PagesController extends Controller
 {
-    public function welcome() {
+    public function welcome()
+    {
         return Inertia::render('Welcome');
     }
 
@@ -41,45 +43,60 @@ class PagesController extends Controller
 
     public function master_consumers()
     {
-        return Inertia::render('Master/Consumers/index'); 
+        return Inertia::render('Master/Consumers/index');
     }
     public function master_subscribers()
     {
-        return Inertia::render('Master/Subscribers/index'); 
+        return Inertia::render('Master/Subscribers/index');
     }
-    
+
     public function master_publications()
     {
-        return Inertia::render('Master/Publications/index'); 
+        return Inertia::render('Master/Publications/index');
     }
     public function master_locations()
     {
 
-        return Inertia::render('Master/Locations/index',['states'=> State::get()]); 
+        return Inertia::render('Master/Locations/index', ['states' => State::get()]);
     }
 
-    public function dispatchEntry() {
+    public function dispatchEntry()
+    {
         return Inertia::render('Tasks/DispatchEntry/index');
     }
 
-    public function labelPrinting() {
+    public function labelPrinting()
+    {
         return Inertia::render('Tasks/LabelPrint/index');
     }
 
-    public function printOrder() {
+    public function printOrder()
+    {
         // Logic for print order
         return Inertia::render('Tasks/PrintOrder/index');
     }
 
-    public function challanGeneration() {
+    public function challanGeneration()
+    {
         // Logic for challan generation
     }
 
-    public function dispatchChecklist() {
+    public function dispatchChecklist()
+    {
         // Logic for dispatch checklist
     }
 
-    public function unsoldReturnEntry() {
+    public function unsoldReturnEntry()
+    {
         // Logic for unsold return entry
+    }
+
+
+    // register
+    public function salesRegister()
+    {
+        $pb = Publication::with(['editions'])->get();
+        $agnt = Agent::with(['dispatches'])->get();
+        return Inertia::render('Register/SalesRegister', ['publications' => $pb, 'agents' => $agnt]);
     }
 }
